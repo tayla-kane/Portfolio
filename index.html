@@ -11,8 +11,8 @@
     <style>
         
 .work-image {
-    width: 420px;
-    height: 240px;
+    width: 460px;
+    height: 220px;
     overflow: hidden;
     margin: 0 auto 25px auto;
     border-radius: 12px;
@@ -26,8 +26,8 @@
 }
 
         .work-card:nth-child(2) .work-image {
-    width: 340px;
-    height: 340px;
+    width: 300px;
+    height: 300px;
     margin: 0 auto 25px auto;
 }
 
@@ -527,27 +527,22 @@
             gap: 25px;
         }
 
-        .work-card {
-            background: white;
+    .work-card {
+    background: white;
+    border: 1px solid #dceaf3;
+    border-radius: 25px;
+    padding: 25px;
 
-            border: 1px solid #dceaf3;
+    height: 520px;
 
-            border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-            padding: 25px;
-
-            min-height: 0;
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: space-between;
-
-            transition:
-                transform 0.35s ease,
-                box-shadow 0.35s ease;
-        }
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
 
         .work-card:hover {
             transform: translateY(-10px) rotate(-1deg);
@@ -556,13 +551,13 @@
                 0 20px 45px rgba(50, 100, 130, 0.12);
         }
 
-       .work-card:nth-child(1) {
-    grid-column: 1 / span 5;
+  .work-card:nth-child(1) {
+    grid-column: 2 / span 5;
 }
 
 .work-card:nth-child(2) {
     grid-column: 7 / span 5;
-    margin-top: 60px;
+    margin-top: 35px;
     background: #e1f1fb;
 }
 
