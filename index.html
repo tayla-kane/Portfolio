@@ -1,593 +1,706 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-```
-<title>Tayla Kane | Sound & Music</title>
-
-<style>
-
-    * {
-        box-sizing: border-box;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: #f8fbff;
-        color: #1d2a38;
-        line-height: 1.6;
-    }
-
-
-    /* NAVIGATION */
-
-    header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-
-        padding: 22px 7%;
-
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        background: rgba(248, 251, 255, 0.94);
-        border-bottom: 1px solid #dce8f2;
-    }
-
-    header h1 {
-        margin: 0;
-        font-size: 20px;
-        letter-spacing: 1px;
-    }
-
-    nav a {
-        color: #1d2a38;
-        text-decoration: none;
-        margin-left: 28px;
-        font-size: 14px;
-        transition: color 0.3s;
-    }
-
-    nav a:hover {
-        color: #5b9dcc;
-    }
-
-
-    /* HERO */
-
-    .hero {
-        min-height: 100vh;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        padding: 120px 7% 80px;
-
-        background:
-            radial-gradient(
-                circle at 85% 25%,
-                #dceffd 0%,
-                #f8fbff 45%
-            );
-    }
-
-    .hero-small {
-        font-size: 13px;
-        letter-spacing: 4px;
-        text-transform: uppercase;
-        color: #6c8da6;
-        margin-bottom: 20px;
-    }
-
-    .hero h2 {
-        font-size: clamp(55px, 9vw, 115px);
-        line-height: 0.95;
-        margin: 0;
-        max-width: 1000px;
-        letter-spacing: -4px;
-        color: #1d2a38;
-    }
-
-    .hero h2 span {
-        color: #75add3;
-    }
-
-    .hero p {
-        font-size: 20px;
-        color: #607386;
-        max-width: 650px;
-        margin-top: 35px;
-    }
-
-    .hero-button {
-        display: inline-block;
-
-        margin-top: 25px;
-        padding: 14px 25px;
-
-        width: fit-content;
-
-        background-color: #75add3;
-        color: white;
-
-        text-decoration: none;
-
-        border-radius: 5px;
-
-        transition: background-color 0.3s, transform 0.3s;
-    }
-
-    .hero-button:hover {
-        background-color: #5d99c2;
-        transform: translateY(-2px);
-    }
-
-
-    /* GENERAL SECTIONS */
-
-    section {
-        padding: 110px 7%;
-    }
-
-    .section-label {
-        color: #75add3;
-        font-size: 13px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        margin-bottom: 15px;
-    }
-
-    section h2 {
-        font-size: 48px;
-        margin-top: 0;
-        margin-bottom: 35px;
-    }
-
-
-    /* ABOUT */
-
-    .about {
-        max-width: 900px;
-    }
-
-    .about p {
-        font-size: 21px;
-        color: #607386;
-        line-height: 1.7;
-    }
-
-
-    /* PORTFOLIO */
-
-    #portfolio {
-        background-color: #edf6fc;
-    }
-
-    .projects {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-    }
-
-    .project {
-        min-height: 280px;
-
-        background-color: white;
-
-        border: 1px solid #d7e7f2;
-        border-radius: 8px;
-
-        padding: 35px;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .project:hover {
-        transform: translateY(-5px);
-
-        box-shadow: 0 12px 30px rgba(80, 130, 165, 0.12);
-    }
-
-    .project-number {
-        color: #8aabba;
-        font-size: 13px;
-        margin-bottom: auto;
-    }
-
-    .project h3 {
-        font-size: 30px;
-        margin: 0 0 8px;
-        color: #1d2a38;
-    }
-
-    .project p {
-        color: #718596;
-        margin: 0;
-    }
-
-
-    /* SKILLS */
-
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-    }
-
-    .skill-category {
-        background-color: white;
-
-        border: 1px solid #dce8f2;
-        border-radius: 8px;
-
-        padding: 30px;
-    }
-
-    .skill-category h3 {
-        font-size: 20px;
-        margin-top: 0;
-        color: #1d2a38;
-    }
-
-    .skill-category p {
-        color: #718596;
-    }
-
-
-    /* CONTACT */
-
-    #contact {
-        text-align: center;
-
-        background-color: #e1f1fb;
-    }
-
-    #contact h2 {
-        font-size: 55px;
-    }
-
-    #contact p {
-        color: #607386;
-        font-size: 18px;
-    }
-
-    .email {
-        display: inline-block;
-
-        margin-top: 20px;
-
-        color: #4f8eb8;
-
-        font-size: 20px;
-
-        text-decoration: none;
-
-        border-bottom: 1px solid #75add3;
-
-        padding-bottom: 5px;
-    }
-
-
-    /* FOOTER */
-
-    footer {
-        padding: 35px 7%;
-
-        background-color: #f8fbff;
-
-        border-top: 1px solid #dce8f2;
-
-        color: #8093a3;
-
-        font-size: 13px;
-    }
-
-
-    /* MOBILE */
-
-    @media (max-width: 700px) {
-
-        header {
-            padding: 18px 5%;
+    <title>Tayla Kane | Sound & Music</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        header h1 {
-            font-size: 17px;
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8fbff;
+            color: #1d2a38;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           FLOATING MUSIC SYMBOLS
+           ========================= */
+
+        .music-symbols {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .music-symbol {
+            position: absolute;
+            color: #75add3;
+            opacity: 0.35;
+            font-family: Georgia, serif;
+            user-select: none;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .symbol1 {
+            font-size: 55px;
+            top: 12%;
+            left: 7%;
+            animation-duration: 7s;
+        }
+
+        .symbol2 {
+            font-size: 35px;
+            top: 25%;
+            right: 10%;
+            animation-duration: 9s;
+            animation-delay: 1s;
+        }
+
+        .symbol3 {
+            font-size: 70px;
+            top: 45%;
+            left: 3%;
+            animation-duration: 10s;
+            animation-delay: 2s;
+        }
+
+        .symbol4 {
+            font-size: 42px;
+            top: 55%;
+            right: 6%;
+            animation-duration: 8s;
+            animation-delay: 3s;
+        }
+
+        .symbol5 {
+            font-size: 30px;
+            top: 72%;
+            left: 12%;
+            animation-duration: 11s;
+            animation-delay: 1s;
+        }
+
+        .symbol6 {
+            font-size: 65px;
+            top: 80%;
+            right: 14%;
+            animation-duration: 9s;
+            animation-delay: 4s;
+        }
+
+        .symbol7 {
+            font-size: 38px;
+            top: 88%;
+            left: 45%;
+            animation-duration: 12s;
+            animation-delay: 2s;
+        }
+
+        .symbol8 {
+            font-size: 50px;
+            top: 35%;
+            right: 28%;
+            animation-duration: 10s;
+            animation-delay: 5s;
+        }
+
+        .symbol9 {
+            font-size: 28px;
+            top: 65%;
+            right: 35%;
+            animation-duration: 8s;
+            animation-delay: 2s;
+        }
+
+        .symbol10 {
+            font-size: 45px;
+            top: 18%;
+            left: 38%;
+            animation-duration: 13s;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+
+            50% {
+                transform: translateY(-22px) rotate(8deg);
+            }
+        }
+
+        /* =========================
+           HEADER
+           ========================= */
+
+        header {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 7%;
+            background: rgba(248, 251, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e1edf5;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
         }
 
         nav a {
-            margin-left: 12px;
-            font-size: 12px;
+            text-decoration: none;
+            color: #1d2a38;
+            margin-left: 30px;
+            font-size: 14px;
+            transition: color 0.3s ease;
         }
+
+        nav a:hover {
+            color: #75add3;
+        }
+
+        /* =========================
+           HERO
+           ========================= */
 
         .hero {
-            padding-left: 5%;
-            padding-right: 5%;
+            position: relative;
+            z-index: 5;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 7%;
         }
 
-        .hero h2 {
-            letter-spacing: -2px;
+        .hero-content {
+            max-width: 900px;
         }
+
+        .small-heading {
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 13px;
+            color: #75add3;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(60px, 11vw, 150px);
+            line-height: 0.9;
+            letter-spacing: -6px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: #75add3;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 35px;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #526474;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 28px;
+            border: 2px solid #75add3;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #1d2a38;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background: #75add3;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           SECTIONS
+           ========================= */
 
         section {
-            padding: 80px 5%;
+            position: relative;
+            z-index: 5;
+            padding: 100px 7%;
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 12px;
+            color: #75add3;
+            margin-bottom: 15px;
         }
 
         section h2 {
-            font-size: 38px;
+            font-size: clamp(40px, 6vw, 75px);
+            margin-bottom: 35px;
+            letter-spacing: -3px;
         }
 
-        .projects {
-            grid-template-columns: 1fr;
+        /* =========================
+           ABOUT
+           ========================= */
+
+        .about {
+            background: #edf6fc;
+        }
+
+        .about-text {
+            max-width: 800px;
+            font-size: 20px;
+            line-height: 1.8;
+            color: #526474;
+        }
+
+        /* =========================
+           WORK
+           ========================= */
+
+        .work {
+            background: #f8fbff;
+        }
+
+        .work-intro {
+            max-width: 650px;
+            color: #526474;
+            line-height: 1.7;
+            margin-bottom: 60px;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 25px;
+        }
+
+        .work-card {
+            background: white;
+            border: 1px solid #dceaf3;
+            border-radius: 25px;
+            padding: 35px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-10px) rotate(-1deg);
+            box-shadow: 0 20px 45px rgba(50, 100, 130, 0.12);
+        }
+
+        .work-card:nth-child(1) {
+            grid-column: span 7;
+        }
+
+        .work-card:nth-child(2) {
+            grid-column: span 5;
+            margin-top: 60px;
+            background: #e1f1fb;
+        }
+
+        .work-card:nth-child(3) {
+            grid-column: span 5;
+        }
+
+        .work-card:nth-child(4) {
+            grid-column: span 7;
+            margin-top: -30px;
+            background: #edf6fc;
+        }
+
+        .work-number {
+            font-size: 14px;
+            color: #75add3;
+            letter-spacing: 2px;
+        }
+
+        .work-card h3 {
+            font-size: 32px;
+            margin: 20px 0 10px;
+        }
+
+        .work-card p {
+            color: #526474;
+            line-height: 1.6;
+        }
+
+        .work-tag {
+            margin-top: 25px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #75add3;
+        }
+
+        /* =========================
+           SKILLS
+           ========================= */
+
+        .skills {
+            background: #e1f1fb;
         }
 
         .skills-grid {
-            grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
         }
 
-        #contact h2 {
-            font-size: 42px;
+        .skill-box {
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
         }
 
-    }
+        .skill-box h3 {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
 
-</style>
-```
+        .skill-box p {
+            color: #526474;
+            line-height: 1.8;
+        }
 
+        /* =========================
+           CONTACT
+           ========================= */
+
+        .contact {
+            text-align: center;
+            background: #f8fbff;
+        }
+
+        .contact p {
+            color: #526474;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        /* =========================
+           FOOTER
+           ========================= */
+
+        footer {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            padding: 30px;
+            background: #edf6fc;
+            color: #526474;
+            font-size: 13px;
+        }
+
+        /* =========================
+           MOBILE
+           ========================= */
+
+        @media (max-width: 750px) {
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero {
+                min-height: 75vh;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            section {
+                padding: 75px 6%;
+            }
+
+            .work-grid {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .work-card:nth-child(2),
+            .work-card:nth-child(4) {
+                margin-top: 0;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .music-symbol {
+                opacity: 0.25;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-```
-<!-- NAVIGATION -->
-
-<header>
-
-    <h1>TAYLA KANE</h1>
-
-    <nav>
-        <a href="#about">About</a>
-        <a href="#portfolio">Work</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-</header>
-
-
-<!-- HERO -->
-
-<div class="hero">
-
-    <div class="hero-small">
-        Sound · Music · Creative Practice
+    <!-- FLOATING MUSIC SYMBOLS -->
+    <div class="music-symbols">
+        <div class="music-symbol symbol1">♫</div>
+        <div class="music-symbol symbol2">♪</div>
+        <div class="music-symbol symbol3">♬</div>
+        <div class="music-symbol symbol4">♩</div>
+        <div class="music-symbol symbol5">♫</div>
+        <div class="music-symbol symbol6">♪</div>
+        <div class="music-symbol symbol7">♬</div>
+        <div class="music-symbol symbol8">♩</div>
+        <div class="music-symbol symbol9">♪</div>
+        <div class="music-symbol symbol10">♫</div>
     </div>
 
-    <h2>
-        SOUND.<br>
-        <span>MUSIC.</span>
-    </h2>
 
-    <p>
-        Exploring sound across creative projects, production,
-        performance and live environments.
-    </p>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">TAYLA KANE</div>
 
-    <a href="#portfolio" class="hero-button">
-        Explore my work →
-    </a>
-
-</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#work">Work</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
 
-<!-- ABOUT -->
+    <!-- HERO -->
+    <main>
 
-<section id="about">
+        <section class="hero">
+            <div class="hero-content">
 
-    <div class="section-label">
-        01 — About
-    </div>
+                <div class="small-heading">
+                    Sound · Music · Creative Practice
+                </div>
 
-    <div class="about">
+                <h1>
+                    I MAKE
+                    <span>THINGS</span>
+                    YOU CAN HEAR.
+                </h1>
 
-        <h2>Sound in every setting.</h2>
+                <p>
+                    Exploring sound across creative projects, music production,
+                    performance, live environments and everything in between.
+                </p>
 
-        <p>
-            I'm Tayla, a Creative Industries student with a passion for
-            sound and music. I'm interested in exploring the many ways
-            sound can be used to support creative projects and bring
-            ideas to life.
-        </p>
+                <a class="button" href="#work">
+                    Explore my work →
+                </a>
 
-        <p>
-            My experience spans sound editing, recording, music
-            production, audio mixing and live production. I'm open to
-            opportunities across different areas of the sound and music
-            industries.
-        </p>
-
-    </div>
-
-</section>
+            </div>
+        </section>
 
 
-<!-- PORTFOLIO -->
+        <!-- ABOUT -->
+        <section class="about" id="about">
 
-<section id="portfolio">
+            <div class="section-label">01 — About</div>
 
-    <div class="section-label">
-        02 — Selected Work
-    </div>
+            <h2>Sound in every setting.</h2>
 
-    <h2>My Work</h2>
+            <p class="about-text">
+                I'm a Creative Industries student with a passion for sound and music.
+                My experience spans sound editing, recording, music production,
+                audio mixing and live production. I'm interested in exploring
+                different areas of the sound and music industries and seeing
+                where each project takes me.
+            </p>
 
-    <div class="projects">
+        </section>
 
 
-        <div class="project">
+        <!-- WORK -->
+        <section class="work" id="work">
 
-            <div class="project-number">
-                01
+            <div class="section-label">02 — Selected Work</div>
+
+            <h2>Things I've made.</h2>
+
+            <p class="work-intro">
+                A selection of projects exploring sound, music, production
+                and creative practice.
+            </p>
+
+
+            <div class="work-grid">
+
+                <div class="work-card">
+
+                    <div>
+                        <div class="work-number">01</div>
+
+                        <h3>Judas Kiss</h3>
+
+                        <p>
+                            Sound editing and continuity work for a short film,
+                            working between completed visual elements and a final deadline.
+                        </p>
+                    </div>
+
+                    <div class="work-tag">
+                        Sound Editing · Continuity
+                    </div>
+
+                </div>
+
+
+                <div class="work-card">
+
+                    <div>
+                        <div class="work-number">02</div>
+
+                        <h3>The Lost Piano</h3>
+
+                        <p>
+                            Original composition and sound design created
+                            to support reflection, tension and memory.
+                        </p>
+                    </div>
+
+                    <div class="work-tag">
+                        Composition · Sound Design
+                    </div>
+
+                </div>
+
+
+                <div class="work-card">
+
+                    <div>
+                        <div class="work-number">03</div>
+
+                        <h3>Music Production</h3>
+
+                        <p>
+                            Original music created using digital audio workstations,
+                            exploring production, arrangement, recording and mixing.
+                        </p>
+                    </div>
+
+                    <div class="work-tag">
+                        Logic Pro · Ableton Live
+                    </div>
+
+                </div>
+
+
+                <div class="work-card">
+
+                    <div>
+                        <div class="work-number">04</div>
+
+                        <h3>Live Production</h3>
+
+                        <p>
+                            Audio and broadcast experience across live environments,
+                            including microphone setup, mixing and production support.
+                        </p>
+                    </div>
+
+                    <div class="work-tag">
+                        Live Audio · Broadcast
+                    </div>
+
+                </div>
+
             </div>
 
-            <h3>Judas Kiss</h3>
-
-            <p>
-                Sound Editing & Continuity
-            </p>
-
-        </div>
+        </section>
 
 
-        <div class="project">
+        <!-- SKILLS -->
+        <section class="skills" id="skills">
 
-            <div class="project-number">
-                02
+            <div class="section-label">03 — Capabilities</div>
+
+            <h2>What's on the desk?</h2>
+
+            <div class="skills-grid">
+
+                <div class="skill-box">
+                    <h3>Sound</h3>
+
+                    <p>
+                        Sound Editing · Sound Recording · Sound Design ·
+                        Sound Effects · Continuity · Adobe Premiere Pro
+                    </p>
+                </div>
+
+                <div class="skill-box">
+                    <h3>Music</h3>
+
+                    <p>
+                        Music Production · Composition · Audio Mixing ·
+                        Logic Pro · Ableton Live · Pro Tools · Microphone Setup
+                    </p>
+                </div>
+
+                <div class="skill-box">
+                    <h3>Live</h3>
+
+                    <p>
+                        Live Audio Mixing · Broadcast · Microphone Setup ·
+                        QLab · Sound Effects · Live Production
+                    </p>
+                </div>
+
             </div>
 
-            <h3>The Lost Piano</h3>
+        </section>
+
+
+        <!-- CONTACT -->
+        <section class="contact" id="contact">
+
+            <div class="section-label">04 — Contact</div>
+
+            <h2>Let's make something.</h2>
 
             <p>
-                Composition & Sound Design
+                Interested in working together or want to get in touch?
             </p>
 
-        </div>
+            <a class="button" href="mailto:YOUR-EMAIL@example.com">
+                Get in touch →
+            </a>
+
+        </section>
+
+    </main>
 
 
-        <div class="project">
-
-            <div class="project-number">
-                03
-            </div>
-
-            <h3>Music Production</h3>
-
-            <p>
-                Logic Pro & Ableton Live
-            </p>
-
-        </div>
-
-
-        <div class="project">
-
-            <div class="project-number">
-                04
-            </div>
-
-            <h3>Live Production</h3>
-
-            <p>
-                Live Audio & Broadcast
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- SKILLS -->
-
-<section id="skills">
-
-    <div class="section-label">
-        03 — Capabilities
-    </div>
-
-    <h2>Skills</h2>
-
-    <div class="skills-grid">
-
-
-        <div class="skill-category">
-
-            <h3>Sound</h3>
-
-            <p>
-                Sound Editing · Sound Recording · Sound Design ·
-                Audio Mixing · Microphone Setup
-            </p>
-
-        </div>
-
-
-        <div class="skill-category">
-
-            <h3>Music</h3>
-
-            <p>
-                Music Production · Composition · Logic Pro ·
-                Ableton Live · Pro Tools
-            </p>
-
-        </div>
-
-
-        <div class="skill-category">
-
-            <h3>Live & Production</h3>
-
-            <p>
-                Live Audio Mixing · Broadcast Production ·
-                QLab · Sound Effects
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-    <div class="section-label">
-        04 — Contact
-    </div>
-
-    <h2>Let's make something.</h2>
-
-    <p>
-        Interested in working together or discussing a project?
-    </p>
-
-    <a href="mailto:your-email@example.com" class="email">
-        your-email@example.com
-    </a>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    © 2026 Tayla Kane · Sound & Music
-
-</footer>
-```
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Tayla Kane · Sound & Music
+    </footer>
 
 </body>
 </html>
+```
