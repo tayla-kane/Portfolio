@@ -6,6 +6,8 @@
 
     <title>The Lost Piano | Portfolio</title>
 
+<link rel="icon" type="image/png" href="favicon.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
 
     <style>
@@ -33,43 +35,90 @@
         .back-link:hover {
             text-decoration: underline;
         }
+.project-hero {
+    margin-bottom: 70px;
+}
 
-        h1 {
-            font-family: "Aclonica", sans-serif;
-            font-size: clamp(45px, 8vw, 90px);
-            margin: 0 0 15px;
-        }
+.project-number {
+    color: #75add3;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
 
-        .project-role {
-            color: #75add3;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 13px;
-            margin-bottom: 40px;
-        }
+.project-hero h1 {
+    font-family: "Aclonica", sans-serif;
+    font-size: clamp(55px, 9vw, 110px);
+    line-height: 1;
+    margin: 0 0 20px;
+    font-weight: 400;
+}
 
-        .project-image {
-            display: block;
-            max-width: 600px;
-            width: 100%;
-            height: auto;
-            margin: 0 auto 50px;
-            border-radius: 20px;
-        }
+.project-role {
+    color: #75add3;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 0;
+}
 
-        .project-info {
-            max-width: 750px;
-        }
+.project-content {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 70px;
+    align-items: start;
+}
 
-        .project-info h2 {
-            font-size: 28px;
-            margin-top: 40px;
-        }
+.project-image-wrap {
+    background: #e1f1fb;
+    padding: 20px;
+    border-radius: 25px;
+    width: 100%;
+    box-sizing: border-box;
+}
 
-        .project-info p {
-            font-size: 17px;
-            line-height: 1.7;
-        }
+.project-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.project-info {
+    max-width: 550px;
+    padding-top: 10px;
+}
+
+.project-info h2 {
+    font-size: 28px;
+    margin-top: 40px;
+}
+
+.project-info h2:first-child {
+    margin-top: 0;
+}
+
+.project-info p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+@media (max-width: 800px) {
+    .project-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .project-image-wrap {
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .project-info {
+        max-width: 100%;
+    }
+}
     </style>
 </head>
 
@@ -79,39 +128,48 @@
 
         <a href="index.html" class="back-link">← Back to Projects</a>
 
-        <h1>The Lost Piano</h1>
+ <section class="project-hero">
 
-        <div class="project-role">
-            Composition · Sound Design
-        </div>
+    <div class="project-number">02 / PROJECT</div>
 
+    <h1>The Lost Piano</h1>
+
+    <p class="project-role">
+        Composition · Sound Design
+    </p>
+
+</section>
+
+<div class="project-content">
+
+    <div class="project-image-wrap">
         <img
             src="The lost piano.jpg"
             alt="The Lost Piano project"
             class="project-image"
         >
+    </div>
 
-        <div class="project-info">
+    <div class="project-info">
 
-            <h2>About the Project</h2>
-            <p>
-                Add your description of The Lost Piano here.
-            </p>
+        <h2>About the Project</h2>
+        <p>
+            Project information will go here.
+        </p>
 
-            <h2>My Role</h2>
-            <p>
-                Add information about your work as composer and
-                sound designer here.
-            </p>
+        <h2>My Role</h2>
+        <p>
+            Composer · Sound Designer
+        </p>
 
-            <h2>Creative Approach</h2>
-            <p>
-                Add information about the music, sound design,
-                instrumentation and creative choices here.
-            </p>
+        <h2>What I Worked On</h2>
+        <p>
+            More information will go here.
+        </p>
 
-        </div>
+    </div>
 
+</div>
     </main>
 
 </body>
