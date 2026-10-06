@@ -1,180 +1,593 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tayla Kane | Portfolio</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #111111;
-            color: white;
-        }
+```
+<title>Tayla Kane | Sound & Music</title>
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f8fbff;
+        color: #1d2a38;
+        line-height: 1.6;
+    }
+
+
+    /* NAVIGATION */
+
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+
+        padding: 22px 7%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        background: rgba(248, 251, 255, 0.94);
+        border-bottom: 1px solid #dce8f2;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+
+    nav a {
+        color: #1d2a38;
+        text-decoration: none;
+        margin-left: 28px;
+        font-size: 14px;
+        transition: color 0.3s;
+    }
+
+    nav a:hover {
+        color: #5b9dcc;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        padding: 120px 7% 80px;
+
+        background:
+            radial-gradient(
+                circle at 85% 25%,
+                #dceffd 0%,
+                #f8fbff 45%
+            );
+    }
+
+    .hero-small {
+        font-size: 13px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: #6c8da6;
+        margin-bottom: 20px;
+    }
+
+    .hero h2 {
+        font-size: clamp(55px, 9vw, 115px);
+        line-height: 0.95;
+        margin: 0;
+        max-width: 1000px;
+        letter-spacing: -4px;
+        color: #1d2a38;
+    }
+
+    .hero h2 span {
+        color: #75add3;
+    }
+
+    .hero p {
+        font-size: 20px;
+        color: #607386;
+        max-width: 650px;
+        margin-top: 35px;
+    }
+
+    .hero-button {
+        display: inline-block;
+
+        margin-top: 25px;
+        padding: 14px 25px;
+
+        width: fit-content;
+
+        background-color: #75add3;
+        color: white;
+
+        text-decoration: none;
+
+        border-radius: 5px;
+
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .hero-button:hover {
+        background-color: #5d99c2;
+        transform: translateY(-2px);
+    }
+
+
+    /* GENERAL SECTIONS */
+
+    section {
+        padding: 110px 7%;
+    }
+
+    .section-label {
+        color: #75add3;
+        font-size: 13px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+
+    section h2 {
+        font-size: 48px;
+        margin-top: 0;
+        margin-bottom: 35px;
+    }
+
+
+    /* ABOUT */
+
+    .about {
+        max-width: 900px;
+    }
+
+    .about p {
+        font-size: 21px;
+        color: #607386;
+        line-height: 1.7;
+    }
+
+
+    /* PORTFOLIO */
+
+    #portfolio {
+        background-color: #edf6fc;
+    }
+
+    .projects {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .project {
+        min-height: 280px;
+
+        background-color: white;
+
+        border: 1px solid #d7e7f2;
+        border-radius: 8px;
+
+        padding: 35px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project:hover {
+        transform: translateY(-5px);
+
+        box-shadow: 0 12px 30px rgba(80, 130, 165, 0.12);
+    }
+
+    .project-number {
+        color: #8aabba;
+        font-size: 13px;
+        margin-bottom: auto;
+    }
+
+    .project h3 {
+        font-size: 30px;
+        margin: 0 0 8px;
+        color: #1d2a38;
+    }
+
+    .project p {
+        color: #718596;
+        margin: 0;
+    }
+
+
+    /* SKILLS */
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .skill-category {
+        background-color: white;
+
+        border: 1px solid #dce8f2;
+        border-radius: 8px;
+
+        padding: 30px;
+    }
+
+    .skill-category h3 {
+        font-size: 20px;
+        margin-top: 0;
+        color: #1d2a38;
+    }
+
+    .skill-category p {
+        color: #718596;
+    }
+
+
+    /* CONTACT */
+
+    #contact {
+        text-align: center;
+
+        background-color: #e1f1fb;
+    }
+
+    #contact h2 {
+        font-size: 55px;
+    }
+
+    #contact p {
+        color: #607386;
+        font-size: 18px;
+    }
+
+    .email {
+        display: inline-block;
+
+        margin-top: 20px;
+
+        color: #4f8eb8;
+
+        font-size: 20px;
+
+        text-decoration: none;
+
+        border-bottom: 1px solid #75add3;
+
+        padding-bottom: 5px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding: 35px 7%;
+
+        background-color: #f8fbff;
+
+        border-top: 1px solid #dce8f2;
+
+        color: #8093a3;
+
+        font-size: 13px;
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
 
         header {
-            padding: 30px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #333;
+            padding: 18px 5%;
         }
 
         header h1 {
-            margin: 0;
-            font-size: 24px;
+            font-size: 17px;
         }
 
         nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-        }
-
-        nav a:hover {
-            opacity: 0.6;
+            margin-left: 12px;
+            font-size: 12px;
         }
 
         .hero {
-            min-height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 8%;
+            padding-left: 5%;
+            padding-right: 5%;
         }
 
         .hero h2 {
-            font-size: 64px;
-            margin: 0;
-        }
-
-        .hero p {
-            font-size: 22px;
-            color: #bbbbbb;
-            max-width: 600px;
+            letter-spacing: -2px;
         }
 
         section {
-            padding: 80px 8%;
+            padding: 80px 5%;
         }
 
         section h2 {
-            font-size: 36px;
+            font-size: 38px;
         }
 
-        .project {
-            border: 1px solid #333;
-            padding: 30px;
-            margin: 20px 0;
-            border-radius: 10px;
+        .projects {
+            grid-template-columns: 1fr;
         }
 
-        footer {
-            padding: 40px 8%;
-            border-top: 1px solid #333;
-            color: #999;
+        .skills-grid {
+            grid-template-columns: 1fr;
         }
-    </style>
+
+        #contact h2 {
+            font-size: 42px;
+        }
+
+    }
+
+</style>
+```
+
 </head>
 
 <body>
 
-    <header>
-        <h1>Tayla Kane</h1>
+```
+<!-- NAVIGATION -->
 
-        <nav>
-            <a href="#about">About</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<header>
+
+    <h1>TAYLA KANE</h1>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#portfolio">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+</header>
 
 
-    <div class="hero">
-        <h2>Sound, Music & Film</h2>
-        <p>
-            Creative Industries student specialising in sound, music production
-            and film.
-        </p>
+<!-- HERO -->
+
+<div class="hero">
+
+    <div class="hero-small">
+        Sound · Music · Creative Practice
     </div>
 
+    <h2>
+        SOUND.<br>
+        <span>MUSIC.</span>
+    </h2>
 
-    <section id="about">
-        <h2>About Me</h2>
+    <p>
+        Exploring sound across creative projects, production,
+        performance and live environments.
+    </p>
+
+    <a href="#portfolio" class="hero-button">
+        Explore my work →
+    </a>
+
+</div>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="section-label">
+        01 — About
+    </div>
+
+    <div class="about">
+
+        <h2>Sound in every setting.</h2>
 
         <p>
-            I'm Tayla, a Creative Industries student with a passion for sound,
-            music and film. I'm interested in working across film, television,
-            theatre, live production and music.
+            I'm Tayla, a Creative Industries student with a passion for
+            sound and music. I'm interested in exploring the many ways
+            sound can be used to support creative projects and bring
+            ideas to life.
         </p>
-    </section>
+
+        <p>
+            My experience spans sound editing, recording, music
+            production, audio mixing and live production. I'm open to
+            opportunities across different areas of the sound and music
+            industries.
+        </p>
+
+    </div>
+
+</section>
 
 
-    <section id="portfolio">
-        <h2>Portfolio</h2>
+<!-- PORTFOLIO -->
+
+<section id="portfolio">
+
+    <div class="section-label">
+        02 — Selected Work
+    </div>
+
+    <h2>My Work</h2>
+
+    <div class="projects">
+
 
         <div class="project">
+
+            <div class="project-number">
+                01
+            </div>
+
             <h3>Judas Kiss</h3>
+
             <p>
-                Sound Editor & Continuity Advisor
+                Sound Editing & Continuity
             </p>
+
         </div>
 
+
         <div class="project">
+
+            <div class="project-number">
+                02
+            </div>
+
             <h3>The Lost Piano</h3>
+
             <p>
-                Composer & Sound Designer
+                Composition & Sound Design
             </p>
+
         </div>
 
+
         <div class="project">
+
+            <div class="project-number">
+                03
+            </div>
+
             <h3>Music Production</h3>
+
             <p>
-                Music production using Logic Pro and Ableton.
+                Logic Pro & Ableton Live
             </p>
+
         </div>
+
 
         <div class="project">
+
+            <div class="project-number">
+                04
+            </div>
+
             <h3>Live Production</h3>
+
             <p>
-                Experience working with live audio and broadcast production.
+                Live Audio & Broadcast
             </p>
+
         </div>
-    </section>
 
 
-    <section id="skills">
-        <h2>Skills</h2>
+    </div>
 
-        <h3>Sound for Film & TV</h3>
-        <p>Sound Editing · Sound Recording · Sound Design · Continuity · Adobe Premiere Pro</p>
-
-        <h3>Music Production</h3>
-        <p>Logic Pro · Ableton Live · Pro Tools · Audio Mixing · Microphone Setup</p>
-
-        <h3>Live Production</h3>
-        <p>Live Audio Mixing · Microphone Setup · QLab · Sound Effects</p>
-    </section>
+</section>
 
 
-    <section id="contact">
-        <h2>Contact</h2>
+<!-- SKILLS -->
 
-        <p>
-            Interested in working together? Get in touch.
-        </p>
+<section id="skills">
 
-        <p>
-            Email: your-email@example.com
-        </p>
-    </section>
+    <div class="section-label">
+        03 — Capabilities
+    </div>
+
+    <h2>Skills</h2>
+
+    <div class="skills-grid">
 
 
-    <footer>
-        © 2026 Tayla Kane
-    </footer>
+        <div class="skill-category">
+
+            <h3>Sound</h3>
+
+            <p>
+                Sound Editing · Sound Recording · Sound Design ·
+                Audio Mixing · Microphone Setup
+            </p>
+
+        </div>
+
+
+        <div class="skill-category">
+
+            <h3>Music</h3>
+
+            <p>
+                Music Production · Composition · Logic Pro ·
+                Ableton Live · Pro Tools
+            </p>
+
+        </div>
+
+
+        <div class="skill-category">
+
+            <h3>Live & Production</h3>
+
+            <p>
+                Live Audio Mixing · Broadcast Production ·
+                QLab · Sound Effects
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="section-label">
+        04 — Contact
+    </div>
+
+    <h2>Let's make something.</h2>
+
+    <p>
+        Interested in working together or discussing a project?
+    </p>
+
+    <a href="mailto:your-email@example.com" class="email">
+        your-email@example.com
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 Tayla Kane · Sound & Music
+
+</footer>
+```
 
 </body>
 </html>
