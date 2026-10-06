@@ -8,10 +8,6 @@
 
     <style>
 
-        /* =========================
-           GENERAL
-        ========================= */
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -51,7 +47,6 @@
             color: #75add3;
 
             transform: translate(-50%, -50%);
-            transition: transform 0.08s ease;
         }
 
         .cursor-trail {
@@ -102,7 +97,6 @@
             left: 8%;
             top: 15%;
             font-size: 35px;
-            animation-delay: 0s;
         }
 
         .music-symbol:nth-child(2) {
@@ -185,10 +179,6 @@
             font-size: 14px;
         }
 
-        nav a {
-            transition: color 0.2s ease;
-        }
-
         nav a:hover {
             color: #5c9bc5;
         }
@@ -250,8 +240,11 @@
             animation-delay: 0.6s;
         }
 
-        @keyframes titleFloat {
+        .hero h1 .word:nth-child(6) {
+            animation-delay: 0.75s;
+        }
 
+        @keyframes titleFloat {
             0%, 100% {
                 transform: translateY(0);
             }
@@ -318,11 +311,13 @@
         }
 
         .works-intro {
-            max-width: 550px;
+            max-width: 500px;
+
             color: #536777;
             line-height: 1.6;
+
             margin-top: -35px;
-            margin-bottom: 55px;
+            margin-bottom: 50px;
         }
 
         .projects {
@@ -330,64 +325,72 @@
 
             grid-template-columns: repeat(12, 1fr);
 
-            gap: 28px;
+            gap: 35px;
+
             align-items: start;
+
+            max-width: 950px;
+            margin: 0 auto;
         }
 
 
         /* =========================
-           PROJECT PREVIEWS
+           SMALL PROJECT PREVIEWS
         ========================= */
 
         .project {
             position: relative;
 
             background: white;
+
             border: 1px solid #d9eaf5;
 
-            padding: 15px;
+            padding: 10px;
 
             cursor: none;
 
             transition:
-                transform 0.35s ease,
-                box-shadow 0.35s ease;
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
 
-            box-shadow: 0 5px 20px rgba(70, 130, 170, 0.05);
+            box-shadow: 0 5px 15px rgba(70, 130, 170, 0.05);
         }
 
         .project:hover {
-            transform: translateY(-8px) rotate(-1deg);
+            transform: translateY(-7px) rotate(-1deg);
 
             box-shadow:
-                0 20px 40px rgba(70, 130, 170, 0.12);
+                0 15px 30px rgba(70, 130, 170, 0.12);
         }
 
+
+        /* POSITION AND SIZE */
+
         .project:nth-child(1) {
-            grid-column: 1 / span 5;
+            grid-column: 1 / span 4;
         }
 
         .project:nth-child(2) {
-            grid-column: 7 / span 5;
-            margin-top: 60px;
+            grid-column: 7 / span 4;
+            margin-top: 45px;
         }
 
         .project:nth-child(3) {
-            grid-column: 2 / span 4;
-            margin-top: 30px;
+            grid-column: 3 / span 4;
+            margin-top: 15px;
         }
 
         .project:nth-child(4) {
-            grid-column: 7 / span 5;
-            margin-top: 10px;
+            grid-column: 9 / span 4;
+            margin-top: 25px;
         }
 
 
-        /* IMAGE PLACEHOLDER */
+        /* PROJECT IMAGE */
 
         .project-image {
             width: 100%;
-            height: 210px;
+            height: 125px;
 
             background:
                 linear-gradient(
@@ -402,70 +405,69 @@
 
             color: #72a8cb;
 
-            font-size: 14px;
-            letter-spacing: 2px;
+            font-size: 10px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
 
             overflow: hidden;
         }
 
         .project:nth-child(2) .project-image {
-            height: 240px;
+            height: 145px;
         }
 
         .project:nth-child(3) .project-image {
-            height: 180px;
+            height: 115px;
         }
 
         .project:nth-child(4) .project-image {
-            height: 220px;
+            height: 135px;
         }
-
-
-        /* IF YOU ADD AN IMAGE */
 
         .project-image img {
             width: 100%;
             height: 100%;
-
             object-fit: cover;
-
-            display: block;
         }
 
 
-        /* PROJECT INFORMATION */
+        /* PROJECT INFO */
 
         .project-info {
-            padding: 20px 5px 5px;
+            padding: 13px 3px 5px;
         }
 
         .project-number {
-            font-size: 11px;
+            font-size: 9px;
+
             color: #8ab6d4;
+
             letter-spacing: 2px;
         }
 
         .project h3 {
-            margin-top: 8px;
+            margin-top: 5px;
 
-            font-size: 24px;
-            letter-spacing: -0.5px;
+            font-size: 17px;
+
+            letter-spacing: -0.3px;
         }
 
         .project-type {
-            margin-top: 7px;
+            margin-top: 4px;
 
-            font-size: 13px;
+            font-size: 10px;
+
             color: #6b7f8e;
         }
 
         .click-project {
             display: inline-block;
 
-            margin-top: 18px;
+            margin-top: 10px;
 
-            font-size: 12px;
+            font-size: 9px;
+
             letter-spacing: 1px;
             text-transform: uppercase;
 
@@ -479,11 +481,13 @@
 
         .modal {
             position: fixed;
+
             inset: 0;
 
             background: rgba(20, 40, 55, 0.55);
 
             display: flex;
+
             justify-content: center;
             align-items: center;
 
@@ -507,7 +511,8 @@
         .modal-content {
             position: relative;
 
-            width: min(900px, 100%);
+            width: min(850px, 100%);
+
             max-height: 90vh;
 
             overflow-y: auto;
@@ -528,13 +533,14 @@
         .modal-close {
             position: absolute;
 
-            top: 15px;
-            right: 20px;
+            top: 12px;
+            right: 18px;
 
             border: none;
             background: none;
 
             font-size: 30px;
+
             color: #557080;
 
             cursor: none;
@@ -546,7 +552,8 @@
 
         .modal-image {
             width: 100%;
-            height: 330px;
+
+            height: 300px;
 
             background:
                 linear-gradient(
@@ -556,6 +563,7 @@
                 );
 
             display: flex;
+
             justify-content: center;
             align-items: center;
 
@@ -573,8 +581,10 @@
         }
 
         .modal-number {
-            font-size: 11px;
+            font-size: 10px;
+
             letter-spacing: 2px;
+
             color: #79acd0;
         }
 
@@ -582,6 +592,7 @@
             margin-top: 8px;
 
             font-size: clamp(35px, 5vw, 60px);
+
             letter-spacing: -2px;
         }
 
@@ -596,7 +607,8 @@
 
             margin-top: 30px;
 
-            font-size: 17px;
+            font-size: 16px;
+
             line-height: 1.7;
 
             color: #445867;
@@ -604,6 +616,7 @@
 
         .modal-skills {
             display: flex;
+
             flex-wrap: wrap;
 
             gap: 10px;
@@ -617,6 +630,7 @@
             padding: 8px 13px;
 
             font-size: 12px;
+
             color: #548db2;
         }
 
@@ -628,6 +642,7 @@
             background: #f4f9fc;
 
             font-size: 13px;
+
             line-height: 1.5;
 
             color: #668090;
@@ -658,11 +673,13 @@
 
         .skill-group h3 {
             margin-bottom: 20px;
+
             font-size: 21px;
         }
 
         .skill-group p {
             color: #607583;
+
             line-height: 1.8;
         }
 
@@ -701,6 +718,7 @@
 
         .contact-button:hover {
             background: #75add3;
+
             color: white;
         }
 
@@ -711,6 +729,7 @@
 
         footer {
             position: relative;
+
             z-index: 2;
 
             padding: 30px 8%;
@@ -733,10 +752,7 @@
                 cursor: auto;
             }
 
-            .cursor {
-                display: none;
-            }
-
+            .cursor,
             .cursor-trail {
                 display: none;
             }
@@ -762,8 +778,11 @@
             }
 
             .projects {
-                display: flex;
-                flex-direction: column;
+                display: grid;
+
+                grid-template-columns: 1fr 1fr;
+
+                gap: 20px;
             }
 
             .project,
@@ -771,7 +790,8 @@
             .project:nth-child(2),
             .project:nth-child(3),
             .project:nth-child(4) {
-                width: 100%;
+                grid-column: auto;
+
                 margin-top: 0;
             }
 
@@ -779,7 +799,7 @@
             .project:nth-child(2) .project-image,
             .project:nth-child(3) .project-image,
             .project:nth-child(4) .project-image {
-                height: 210px;
+                height: 120px;
             }
 
             .skills-grid {
@@ -804,6 +824,33 @@
         }
 
 
+        @media (max-width: 500px) {
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .project,
+            .project:nth-child(1),
+            .project:nth-child(2),
+            .project:nth-child(3),
+            .project:nth-child(4) {
+                width: 75%;
+            }
+
+            .project:nth-child(even) {
+                align-self: flex-end;
+            }
+
+            .project-image,
+            .project:nth-child(2) .project-image,
+            .project:nth-child(3) .project-image,
+            .project:nth-child(4) .project-image {
+                height: 130px;
+            }
+        }
+
+
         /* =========================
            REDUCED MOTION
         ========================= */
@@ -814,8 +861,11 @@
             *::before,
             *::after {
                 animation-duration: 0.01ms !important;
+
                 animation-iteration-count: 1 !important;
+
                 scroll-behavior: auto !important;
+
                 transition-duration: 0.01ms !important;
             }
         }
@@ -827,16 +877,12 @@
 <body>
 
 
-    <!-- =========================
-         CUSTOM CURSOR
-    ========================= -->
+    <!-- CUSTOM CURSOR -->
 
     <div class="cursor" id="cursor">♪</div>
 
 
-    <!-- =========================
-         FLOATING MUSIC SYMBOLS
-    ========================= -->
+    <!-- FLOATING MUSIC SYMBOLS -->
 
     <div class="music-symbols">
 
@@ -851,9 +897,7 @@
     </div>
 
 
-    <!-- =========================
-         HEADER
-    ========================= -->
+    <!-- HEADER -->
 
     <header>
 
@@ -873,9 +917,7 @@
     </header>
 
 
-    <!-- =========================
-         HERO
-    ========================= -->
+    <!-- HERO -->
 
     <main>
 
@@ -911,9 +953,7 @@
         </section>
 
 
-        <!-- =========================
-             ABOUT
-        ========================= -->
+        <!-- ABOUT -->
 
         <section id="about">
 
@@ -937,9 +977,7 @@
         </section>
 
 
-        <!-- =========================
-             WORKS
-        ========================= -->
+        <!-- WORKS -->
 
         <section id="works">
 
@@ -963,7 +1001,7 @@
             <div class="projects">
 
 
-                <!-- PROJECT 1 -->
+                <!-- JUDAS KISS -->
 
                 <article class="project"
                     onclick="openModal('judasKiss')">
@@ -971,17 +1009,13 @@
                     <div class="project-image">
 
                         <!--
-                        TO ADD YOUR IMAGE:
-
-                        Replace everything inside this
-                        project-image with:
+                        ADD YOUR IMAGE HERE:
 
                         <img src="judas-kiss.jpg"
                              alt="Judas Kiss project">
-
                         -->
 
-                        ADD PROJECT IMAGE
+                        ADD IMAGE
 
                     </div>
 
@@ -1000,7 +1034,7 @@
                         </p>
 
                         <span class="click-project">
-                            View project →
+                            View →
                         </span>
 
                     </div>
@@ -1008,7 +1042,7 @@
                 </article>
 
 
-                <!-- PROJECT 2 -->
+                <!-- THE LOST PIANO -->
 
                 <article class="project"
                     onclick="openModal('lostPiano')">
@@ -1022,7 +1056,7 @@
                              alt="The Lost Piano project">
                         -->
 
-                        ADD PROJECT IMAGE
+                        ADD IMAGE
 
                     </div>
 
@@ -1041,7 +1075,7 @@
                         </p>
 
                         <span class="click-project">
-                            View project →
+                            View →
                         </span>
 
                     </div>
@@ -1049,7 +1083,7 @@
                 </article>
 
 
-                <!-- PROJECT 3 -->
+                <!-- MUSIC PRODUCTION -->
 
                 <article class="project"
                     onclick="openModal('musicProduction')">
@@ -1063,7 +1097,7 @@
                              alt="Music production project">
                         -->
 
-                        ADD PROJECT IMAGE
+                        ADD IMAGE
 
                     </div>
 
@@ -1082,7 +1116,7 @@
                         </p>
 
                         <span class="click-project">
-                            View project →
+                            View →
                         </span>
 
                     </div>
@@ -1090,7 +1124,7 @@
                 </article>
 
 
-                <!-- PROJECT 4 -->
+                <!-- LIVE PRODUCTION -->
 
                 <article class="project"
                     onclick="openModal('liveProduction')">
@@ -1104,7 +1138,7 @@
                              alt="Live production project">
                         -->
 
-                        ADD PROJECT IMAGE
+                        ADD IMAGE
 
                     </div>
 
@@ -1123,7 +1157,7 @@
                         </p>
 
                         <span class="click-project">
-                            View project →
+                            View →
                         </span>
 
                     </div>
@@ -1136,9 +1170,7 @@
         </section>
 
 
-        <!-- =========================
-             SKILLS
-        ========================= -->
+        <!-- SKILLS -->
 
         <section id="skills">
 
@@ -1152,7 +1184,6 @@
 
 
             <div class="skills-grid">
-
 
                 <div class="skill-group">
 
@@ -1204,15 +1235,12 @@
 
                 </div>
 
-
             </div>
 
         </section>
 
 
-        <!-- =========================
-             CONTACT
-        ========================= -->
+        <!-- CONTACT -->
 
         <section id="contact">
 
@@ -1231,11 +1259,6 @@
 
             </p>
 
-            <!--
-            CHANGE THE EMAIL ADDRESS BELOW
-            TO YOUR ACTUAL EMAIL ADDRESS.
-            -->
-
             <a
                 class="contact-button"
                 href="mailto:YOUR-EMAIL@example.com">
@@ -1250,7 +1273,7 @@
 
 
     <!-- =========================
-         PROJECT MODALS
+         MODALS
     ========================= -->
 
 
@@ -1268,7 +1291,6 @@
 
             </button>
 
-
             <div class="modal-image">
 
                 <!--
@@ -1282,7 +1304,6 @@
 
             </div>
 
-
             <div class="modal-number">
                 PROJECT 01
             </div>
@@ -1294,7 +1315,6 @@
             <p class="modal-type">
                 Sound Editing · Continuity Advisor
             </p>
-
 
             <p class="modal-description">
 
@@ -1308,7 +1328,6 @@
 
             </p>
 
-
             <div class="modal-skills">
 
                 <span>Sound Editing</span>
@@ -1317,7 +1336,6 @@
                 <span>Premiere Pro</span>
 
             </div>
-
 
             <div class="media-note">
 
@@ -1345,7 +1363,6 @@
 
             </button>
 
-
             <div class="modal-image">
 
                 <!--
@@ -1359,7 +1376,6 @@
 
             </div>
 
-
             <div class="modal-number">
                 PROJECT 02
             </div>
@@ -1371,7 +1387,6 @@
             <p class="modal-type">
                 Composition · Sound Design
             </p>
-
 
             <p class="modal-description">
 
@@ -1385,7 +1400,6 @@
 
             </p>
 
-
             <div class="modal-skills">
 
                 <span>Composition</span>
@@ -1394,7 +1408,6 @@
                 <span>Strings</span>
 
             </div>
-
 
             <div class="media-note">
 
@@ -1421,7 +1434,6 @@
 
             </button>
 
-
             <div class="modal-image">
 
                 <!--
@@ -1435,7 +1447,6 @@
 
             </div>
 
-
             <div class="modal-number">
                 PROJECT 03
             </div>
@@ -1447,7 +1458,6 @@
             <p class="modal-type">
                 Music Production · DAWs
             </p>
-
 
             <p class="modal-description">
 
@@ -1461,7 +1471,6 @@
 
             </p>
 
-
             <div class="modal-skills">
 
                 <span>Logic Pro</span>
@@ -1470,7 +1479,6 @@
                 <span>Recording</span>
 
             </div>
-
 
             <div class="media-note">
 
@@ -1497,7 +1505,6 @@
 
             </button>
 
-
             <div class="modal-image">
 
                 <!--
@@ -1511,7 +1518,6 @@
 
             </div>
 
-
             <div class="modal-number">
                 PROJECT 04
             </div>
@@ -1524,7 +1530,6 @@
                 Live Audio · Broadcast Production
             </p>
 
-
             <p class="modal-description">
 
                 Practical experience working with sound
@@ -1536,7 +1541,6 @@
 
             </p>
 
-
             <div class="modal-skills">
 
                 <span>Live Audio</span>
@@ -1545,7 +1549,6 @@
                 <span>Microphones</span>
 
             </div>
-
 
             <div class="media-note">
 
@@ -1559,9 +1562,7 @@
     </div>
 
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
+    <!-- FOOTER -->
 
     <footer>
 
@@ -1570,16 +1571,11 @@
     </footer>
 
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
+    <!-- JAVASCRIPT -->
 
     <script>
 
-
-        /* =========================
-           CUSTOM CURSOR
-        ========================= */
+        /* CUSTOM CURSOR */
 
         const cursor = document.getElementById("cursor");
 
@@ -1591,9 +1587,7 @@
         });
 
 
-        /* =========================
-           MUSIC NOTE TRAIL
-        ========================= */
+        /* MUSIC NOTE TRAIL */
 
         document.addEventListener("mousemove", function(event) {
 
@@ -1614,9 +1608,7 @@
                 document.body.appendChild(trail);
 
                 setTimeout(function() {
-
                     trail.remove();
-
                 }, 800);
 
             }
@@ -1624,9 +1616,7 @@
         });
 
 
-        /* =========================
-           OPEN PROJECT
-        ========================= */
+        /* OPEN PROJECT */
 
         function openModal(id) {
 
@@ -1639,9 +1629,7 @@
         }
 
 
-        /* =========================
-           CLOSE PROJECT
-        ========================= */
+        /* CLOSE PROJECT */
 
         function closeModal(id) {
 
@@ -1654,9 +1642,7 @@
         }
 
 
-        /* =========================
-           CLICK OUTSIDE MODAL
-        ========================= */
+        /* CLICK OUTSIDE */
 
         document.querySelectorAll(".modal").forEach(function(modal) {
 
@@ -1675,9 +1661,7 @@
         });
 
 
-        /* =========================
-           ESCAPE KEY
-        ========================= */
+        /* ESCAPE KEY */
 
         document.addEventListener("keydown", function(event) {
 
@@ -1694,7 +1678,6 @@
             }
 
         });
-
 
     </script>
 
