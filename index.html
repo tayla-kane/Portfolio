@@ -1,1513 +1,1216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tayla Kane | Sound & Music</title>
+    <title>Tayla Kane | Sound & Music</title>
 
-<style>
+    <style>
 
-/* =========================================
-   GENERAL
-========================================= */
+        /* =========================================
+           BASIC SETUP
+        ========================================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-html {
-    scroll-behavior: smooth;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f8fbff;
-    color: #1d2a38;
-    overflow-x: hidden;
-    cursor: none;
-}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8fbff;
+            color: #1d2a38;
+            overflow-x: hidden;
 
-a {
-    color: inherit;
-}
+            /* Hide normal cursor on desktop */
+            cursor: none;
+        }
 
 
-/* =========================================
-   CUSTOM MUSIC NOTE CURSOR
-========================================= */
+        /* =========================================
+           CUSTOM CURSOR
+        ========================================= */
 
-.custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
 
-    font-family: Georgia, serif;
-    font-size: 28px;
+            font-family: Georgia, serif;
+            font-size: 28px;
 
-    color: #75add3;
+            color: #75add3;
 
-    pointer-events: none;
-    z-index: 9999;
+            pointer-events: none;
+            z-index: 9999;
 
-    transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 
-    transition:
-        transform 0.2s ease,
-        color 0.2s ease;
-}
+            transition:
+                transform 0.15s ease,
+                color 0.2s ease,
+                font-size 0.2s ease;
 
-.custom-cursor.hover {
-    transform:
-        translate(-50%, -50%)
-        scale(1.5)
-        rotate(10deg);
+            text-shadow: 0 2px 8px rgba(117, 173, 211, 0.25);
+        }
 
-    color: #4b91bf;
-}
+        .custom-cursor.hover {
+            transform: translate(-50%, -50%) scale(1.5) rotate(10deg);
+            color: #4b91bf;
+        }
 
+        /* Little trail particles */
 
-/* =========================================
-   CURSOR TRAIL
-========================================= */
+        .cursor-note {
+            position: fixed;
 
-.cursor-note {
-    position: fixed;
+            pointer-events: none;
 
-    pointer-events: none;
+            font-family: Georgia, serif;
+            color: #75add3;
 
-    font-family: Georgia, serif;
+            font-size: 14px;
 
-    color: #75add3;
+            z-index: 9998;
 
-    font-size: 14px;
+            animation: cursorFade 0.8s ease-out forwards;
+        }
 
-    z-index: 9998;
+        @keyframes cursorFade {
 
-    animation: cursorFade 0.8s ease-out forwards;
-}
+            0% {
+                opacity: 0.45;
+                transform: translate(-50%, -50%) scale(1);
+            }
 
-@keyframes cursorFade {
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -90%) scale(0.5);
+            }
 
-    0% {
-        opacity: 0.5;
-        transform: translate(-50%, -50%) scale(1);
-    }
+        }
 
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -90%) scale(0.5);
-    }
 
-}
-
-
-/* =========================================
-   FLOATING MUSIC SYMBOLS
-========================================= */
-
-.music-symbols {
-    position: fixed;
-    inset: 0;
-
-    pointer-events: none;
-
-    overflow: hidden;
-
-    z-index: 1;
-}
-
-.music-symbol {
-    position: absolute;
-
-    color: #75add3;
-
-    opacity: 0.28;
-
-    font-family: Georgia, serif;
-
-    user-select: none;
-
-    animation: floatSymbol 8s ease-in-out infinite;
-}
-
-.symbol1 {
-    font-size: 55px;
-    top: 12%;
-    left: 7%;
-    animation-duration: 7s;
-}
-
-.symbol2 {
-    font-size: 35px;
-    top: 25%;
-    right: 10%;
-    animation-duration: 9s;
-    animation-delay: 1s;
-}
-
-.symbol3 {
-    font-size: 70px;
-    top: 45%;
-    left: 3%;
-    animation-duration: 10s;
-    animation-delay: 2s;
-}
+        /* =========================================
+           FLOATING MUSIC SYMBOLS
+        ========================================= */
 
-.symbol4 {
-    font-size: 42px;
-    top: 55%;
-    right: 6%;
-    animation-duration: 8s;
-    animation-delay: 3s;
-}
+        .music-symbols {
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            overflow: hidden;
+
+            z-index: 1;
+        }
+
+        .music-symbol {
+            position: absolute;
+
+            color: #75add3;
+
+            opacity: 0.28;
+
+            font-family: Georgia, serif;
+
+            user-select: none;
+
+            animation: floatSymbol 8s ease-in-out infinite;
+        }
+
+
+        .symbol1 {
+            font-size: 55px;
+            top: 12%;
+            left: 7%;
+            animation-duration: 7s;
+        }
+
+        .symbol2 {
+            font-size: 35px;
+            top: 25%;
+            right: 10%;
+            animation-duration: 9s;
+            animation-delay: 1s;
+        }
+
+        .symbol3 {
+            font-size: 70px;
+            top: 45%;
+            left: 3%;
+            animation-duration: 10s;
+            animation-delay: 2s;
+        }
 
-.symbol5 {
-    font-size: 30px;
-    top: 72%;
-    left: 12%;
-    animation-duration: 11s;
-}
+        .symbol4 {
+            font-size: 42px;
+            top: 55%;
+            right: 6%;
+            animation-duration: 8s;
+            animation-delay: 3s;
+        }
 
-.symbol6 {
-    font-size: 65px;
-    top: 80%;
-    right: 14%;
-    animation-duration: 9s;
-    animation-delay: 4s;
-}
+        .symbol5 {
+            font-size: 30px;
+            top: 72%;
+            left: 12%;
+            animation-duration: 11s;
+            animation-delay: 1s;
+        }
 
-.symbol7 {
-    font-size: 38px;
-    top: 88%;
-    left: 45%;
-    animation-duration: 12s;
-}
+        .symbol6 {
+            font-size: 65px;
+            top: 80%;
+            right: 14%;
+            animation-duration: 9s;
+            animation-delay: 4s;
+        }
 
-.symbol8 {
-    font-size: 50px;
-    top: 35%;
-    right: 28%;
-    animation-duration: 10s;
-}
+        .symbol7 {
+            font-size: 38px;
+            top: 88%;
+            left: 45%;
+            animation-duration: 12s;
+            animation-delay: 2s;
+        }
 
-.symbol9 {
-    font-size: 28px;
-    top: 65%;
-    right: 35%;
-    animation-duration: 8s;
-}
+        .symbol8 {
+            font-size: 50px;
+            top: 35%;
+            right: 28%;
+            animation-duration: 10s;
+            animation-delay: 5s;
+        }
 
-.symbol10 {
-    font-size: 45px;
-    top: 18%;
-    left: 38%;
-    animation-duration: 13s;
-}
+        .symbol9 {
+            font-size: 28px;
+            top: 65%;
+            right: 35%;
+            animation-duration: 8s;
+            animation-delay: 2s;
+        }
 
-@keyframes floatSymbol {
+        .symbol10 {
+            font-size: 45px;
+            top: 18%;
+            left: 38%;
+            animation-duration: 13s;
+            animation-delay: 3s;
+        }
 
-    0%, 100% {
-        transform: translateY(0) rotate(-5deg);
-    }
 
-    50% {
-        transform: translateY(-25px) rotate(8deg);
-    }
+        @keyframes floatSymbol {
 
-}
+            0%, 100% {
+                transform: translateY(0) rotate(-5deg);
+            }
 
+            50% {
+                transform: translateY(-25px) rotate(8deg);
+            }
 
-/* =========================================
-   HEADER
-========================================= */
+        }
 
-header {
-    position: relative;
-    z-index: 20;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+        /* =========================================
+           HEADER
+        ========================================= */
 
-    padding: 25px 7%;
+        header {
+            position: relative;
 
-    background: rgba(248, 251, 255, 0.9);
+            z-index: 10;
 
-    backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-    border-bottom: 1px solid #e1edf5;
-}
+            padding: 25px 7%;
 
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
+            background: rgba(248, 251, 255, 0.9);
 
-nav a {
-    text-decoration: none;
+            backdrop-filter: blur(10px);
 
-    margin-left: 30px;
+            border-bottom: 1px solid #e1edf5;
+        }
 
-    font-size: 14px;
+        .logo {
+            font-size: 22px;
 
-    transition:
-        color 0.3s ease;
-}
+            font-weight: bold;
 
-nav a:hover {
-    color: #75add3;
-}
+            letter-spacing: 2px;
+        }
 
+        nav a {
+            text-decoration: none;
 
-/* =========================================
-   HERO
-========================================= */
+            color: #1d2a38;
 
-.hero {
-    position: relative;
-    z-index: 5;
+            margin-left: 30px;
 
-    min-height: 88vh;
+            font-size: 14px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+            transition:
+                color 0.3s ease,
+                transform 0.3s ease;
+        }
 
-    text-align: center;
+        nav a:hover {
+            color: #75add3;
+        }
 
-    padding: 80px 7%;
-}
 
-.hero-content {
-    max-width: 1100px;
-}
+        /* =========================================
+           HERO
+        ========================================= */
 
-.small-heading {
-    text-transform: uppercase;
+        .hero {
+            position: relative;
 
-    letter-spacing: 5px;
+            z-index: 5;
 
-    font-size: 13px;
+            min-height: 85vh;
 
-    color: #75add3;
+            display: flex;
 
-    margin-bottom: 30px;
-}
+            align-items: center;
 
+            justify-content: center;
 
-/* =========================================
-   MOVING TITLE
-========================================= */
+            text-align: center;
 
-.hero h1 {
-    font-size: clamp(55px, 10vw, 145px);
+            padding: 80px 7%;
+        }
 
-    line-height: 0.88;
+        .hero-content {
+            max-width: 1000px;
+        }
 
-    letter-spacing: -7px;
+        .small-heading {
+            text-transform: uppercase;
 
-    margin-bottom: 40px;
+            letter-spacing: 5px;
 
-    font-weight: 800;
-}
+            font-size: 13px;
 
-.hero h1 .word {
-    display: inline-block;
+            color: #75add3;
 
-    animation: titleFloat 5s ease-in-out infinite;
-}
+            margin-bottom: 25px;
+        }
 
-.hero h1 .word:nth-child(1) {
-    animation-delay: 0s;
-}
 
-.hero h1 .word:nth-child(2) {
-    animation-delay: 0.2s;
-}
+        /* =========================================
+           ANIMATED TITLE
+        ========================================= */
 
-.hero h1 .word:nth-child(3) {
-    animation-delay: 0.4s;
-}
+        .hero h1 {
+            font-size: clamp(55px, 10vw, 145px);
 
-.hero h1 .word:nth-child(4) {
-    animation-delay: 0.6s;
-}
+            line-height: 0.9;
 
-.hero h1 .word:nth-child(5) {
-    animation-delay: 0.8s;
-}
+            letter-spacing: -6px;
 
-.hero h1 .word:nth-child(6) {
-    animation-delay: 1s;
-}
+            margin-bottom: 35px;
 
-.hero h1 .blue {
-    color: #75add3;
-}
+            font-weight: 800;
+        }
 
-@keyframes titleFloat {
+        .hero h1 .word {
+            display: inline-block;
 
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-    }
+            animation: titleFloat 5s ease-in-out infinite;
+        }
 
-    50% {
-        transform: translateY(-8px) rotate(-1deg);
-    }
+        .hero h1 .word:nth-child(1) {
+            animation-delay: 0s;
+        }
 
-}
+        .hero h1 .word:nth-child(2) {
+            animation-delay: 0.25s;
+        }
 
-.hero p {
-    max-width: 650px;
+        .hero h1 .word:nth-child(3) {
+            animation-delay: 0.5s;
+        }
 
-    margin: 0 auto 35px;
+        .hero h1 .word:nth-child(4) {
+            animation-delay: 0.75s;
+        }
 
-    font-size: 18px;
+        .hero h1 .word:nth-child(5) {
+            animation-delay: 1s;
+        }
 
-    line-height: 1.7;
+        .hero h1 .word:nth-child(6) {
+            animation-delay: 1.25s;
+        }
 
-    color: #526474;
-}
+        .hero h1 .blue {
+            color: #75add3;
+        }
 
 
-/* =========================================
-   BUTTON
-========================================= */
+        @keyframes titleFloat {
 
-.button {
-    display: inline-block;
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
 
-    padding: 15px 28px;
+            50% {
+                transform: translateY(-8px) rotate(-1deg);
+            }
 
-    border: 2px solid #75add3;
+        }
 
-    border-radius: 50px;
 
-    text-decoration: none;
+        .hero p {
+            max-width: 650px;
 
-    font-weight: bold;
+            margin: 0 auto 35px;
 
-    transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        transform 0.3s ease;
-}
+            font-size: 18px;
 
-.button:hover {
-    background: #75add3;
+            line-height: 1.7;
 
-    color: white;
+            color: #526474;
+        }
 
-    transform: translateY(-4px);
-}
 
+        /* =========================================
+           BUTTON
+        ========================================= */
 
-/* =========================================
-   GENERAL SECTIONS
-========================================= */
+        .button {
+            display: inline-block;
 
-section {
-    position: relative;
+            padding: 15px 28px;
 
-    z-index: 5;
+            border: 2px solid #75add3;
 
-    padding: 110px 7%;
-}
+            border-radius: 50px;
 
-.section-label {
-    text-transform: uppercase;
+            text-decoration: none;
 
-    letter-spacing: 4px;
+            color: #1d2a38;
 
-    font-size: 12px;
+            font-weight: bold;
 
-    color: #75add3;
+            transition:
+                all 0.3s ease;
+        }
 
-    margin-bottom: 15px;
-}
+        .button:hover {
+            background: #75add3;
 
-section h2 {
-    font-size: clamp(42px, 6vw, 80px);
+            color: white;
 
-    letter-spacing: -4px;
+            transform: translateY(-4px);
+        }
 
-    margin-bottom: 30px;
-}
 
+        /* =========================================
+           SECTIONS
+        ========================================= */
 
-/* =========================================
-   ABOUT
-========================================= */
+        section {
+            position: relative;
 
-.about {
-    background: #edf6fc;
-}
+            z-index: 5;
 
-.about-text {
-    max-width: 800px;
+            padding: 100px 7%;
+        }
 
-    font-size: 20px;
+        .section-label {
+            text-transform: uppercase;
 
-    line-height: 1.8;
+            letter-spacing: 4px;
 
-    color: #526474;
-}
+            font-size: 12px;
 
+            color: #75add3;
 
-/* =========================================
-   WORK
-========================================= */
+            margin-bottom: 15px;
+        }
 
-.work {
-    background: #f8fbff;
+        section h2 {
+            font-size: clamp(40px, 6vw, 75px);
 
-    padding-top: 130px;
-    padding-bottom: 130px;
-}
+            margin-bottom: 35px;
 
-.work-intro {
-    max-width: 650px;
+            letter-spacing: -3px;
+        }
 
-    color: #526474;
 
-    line-height: 1.7;
+        /* =========================================
+           ABOUT
+        ========================================= */
 
-    margin-bottom: 90px;
-}
+        .about {
+            background: #edf6fc;
+        }
 
+        .about-text {
+            max-width: 800px;
 
-/* =========================================
-   PROJECT
-========================================= */
+            font-size: 20px;
 
-.project {
-    position: relative;
+            line-height: 1.8;
 
-    margin-bottom: 150px;
+            color: #526474;
+        }
 
-    padding-bottom: 80px;
 
-    border-bottom: 1px solid #dceaf3;
-}
+        /* =========================================
+           WORK
+        ========================================= */
 
-.project:last-child {
-    margin-bottom: 0;
-}
+        .work {
+            background: #f8fbff;
+        }
 
+        .work-intro {
+            max-width: 650px;
 
-/* PROJECT NUMBER */
+            color: #526474;
 
-.project-number {
-    font-size: 13px;
+            line-height: 1.7;
 
-    letter-spacing: 3px;
+            margin-bottom: 60px;
+        }
 
-    color: #75add3;
+        .work-grid {
+            display: grid;
 
-    margin-bottom: 15px;
-}
+            grid-template-columns: repeat(12, 1fr);
 
+            gap: 25px;
+        }
 
-/* PROJECT TITLE */
+        .work-card {
+            background: white;
 
-.project-title {
-    display: flex;
+            border: 1px solid #dceaf3;
 
-    justify-content: space-between;
+            border-radius: 25px;
 
-    align-items: baseline;
+            padding: 35px;
 
-    gap: 30px;
+            min-height: 300px;
 
-    margin-bottom: 35px;
-}
+            display: flex;
 
-.project-title h3 {
-    font-size: clamp(38px, 6vw, 75px);
+            flex-direction: column;
 
-    letter-spacing: -3px;
+            justify-content: space-between;
 
-    font-weight: 700;
-}
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+        }
 
-.project-type {
-    font-size: 12px;
+        .work-card:hover {
+            transform: translateY(-10px) rotate(-1deg);
 
-    text-transform: uppercase;
+            box-shadow:
+                0 20px 45px rgba(50, 100, 130, 0.12);
+        }
 
-    letter-spacing: 2px;
+        .work-card:nth-child(1) {
+            grid-column: span 7;
+        }
 
-    color: #75add3;
+        .work-card:nth-child(2) {
+            grid-column: span 5;
 
-    white-space: nowrap;
-}
+            margin-top: 60px;
 
+            background: #e1f1fb;
+        }
 
-/* =========================================
-   PROJECT IMAGE AREA
-========================================= */
+        .work-card:nth-child(3) {
+            grid-column: span 5;
+        }
 
-.project-image {
-    width: 100%;
+        .work-card:nth-child(4) {
+            grid-column: span 7;
 
-    height: 520px;
+            margin-top: -30px;
 
-    border-radius: 4px;
+            background: #edf6fc;
+        }
 
-    background: #e1f1fb;
+        .work-number {
+            font-size: 14px;
 
-    display: flex;
+            color: #75add3;
 
-    align-items: center;
+            letter-spacing: 2px;
+        }
 
-    justify-content: center;
+        .work-card h3 {
+            font-size: 32px;
 
-    overflow: hidden;
+            margin: 20px 0 10px;
+        }
 
-    position: relative;
+        .work-card p {
+            color: #526474;
 
-    transition:
-        transform 0.5s ease,
-        box-shadow 0.5s ease;
-}
+            line-height: 1.6;
+        }
 
+        .work-tag {
+            margin-top: 25px;
 
-/*
-   When you add an image, put it inside
-   .project-image.
-*/
+            font-size: 12px;
 
-.project-image img {
-    width: 100%;
+            text-transform: uppercase;
 
-    height: 100%;
+            letter-spacing: 2px;
 
-    object-fit: cover;
+            color: #75add3;
+        }
 
-    display: block;
 
-    transition:
-        transform 0.6s ease;
-}
+        /* =========================================
+           SKILLS
+        ========================================= */
 
-.project:hover .project-image {
-    transform: translateY(-6px);
+        .skills {
+            background: #e1f1fb;
+        }
 
-    box-shadow:
-        0 25px 50px rgba(50, 100, 130, 0.12);
-}
+        .skills-grid {
+            display: grid;
 
-.project:hover .project-image img {
-    transform: scale(1.03);
-}
+            grid-template-columns: repeat(3, 1fr);
 
+            gap: 25px;
+        }
 
-/* PLACEHOLDER TEXT */
+        .skill-box {
+            background: white;
 
-.image-placeholder {
-    text-align: center;
+            padding: 35px;
 
-    color: #75add3;
-}
+            border-radius: 25px;
 
-.image-placeholder span {
-    display: block;
+            transition:
+                transform 0.3s ease;
+        }
 
-    font-size: 55px;
+        .skill-box:hover {
+            transform: translateY(-7px);
+        }
 
-    font-family: Georgia, serif;
+        .skill-box h3 {
+            font-size: 25px;
 
-    margin-bottom: 15px;
+            margin-bottom: 20px;
+        }
 
-    opacity: 0.6;
-}
+        .skill-box p {
+            color: #526474;
 
-.image-placeholder p {
-    font-size: 12px;
+            line-height: 1.8;
+        }
 
-    text-transform: uppercase;
 
-    letter-spacing: 3px;
-}
+        /* =========================================
+           CONTACT
+        ========================================= */
 
+        .contact {
+            text-align: center;
 
-/* =========================================
-   PROJECT DESCRIPTION
-========================================= */
+            background: #f8fbff;
+        }
 
-.project-info {
-    display: grid;
+        .contact p {
+            color: #526474;
 
-    grid-template-columns: 1fr 2fr;
+            margin-bottom: 30px;
 
-    gap: 60px;
+            font-size: 18px;
+        }
 
-    margin-top: 30px;
-}
 
-.project-info h4 {
-    font-size: 14px;
+        /* =========================================
+           FOOTER
+        ========================================= */
 
-    text-transform: uppercase;
+        footer {
+            position: relative;
 
-    letter-spacing: 2px;
+            z-index: 5;
 
-    color: #75add3;
-}
+            text-align: center;
 
-.project-info p {
-    max-width: 700px;
+            padding: 30px;
 
-    color: #526474;
+            background: #edf6fc;
 
-    line-height: 1.8;
+            color: #526474;
 
-    font-size: 16px;
-}
+            font-size: 13px;
+        }
 
 
-/* =========================================
-   ALTERNATING PROJECT IMAGE SIZES
-========================================= */
+        /* =========================================
+           MOBILE
+        ========================================= */
 
-.project:nth-child(even) {
-    padding-left: 8%;
-}
+        @media (max-width: 750px) {
 
-.project:nth-child(even) .project-image {
-    height: 450px;
-}
+            /* Restore normal cursor on phones/tablets */
+            body {
+                cursor: auto;
+            }
 
-.project:nth-child(even) .project-title {
-    flex-direction: row-reverse;
-}
+            .custom-cursor {
+                display: none;
+            }
 
+            header {
+                flex-direction: column;
 
-/* =========================================
-   SKILLS
-========================================= */
+                gap: 20px;
+            }
 
-.skills {
-    background: #e1f1fb;
-}
+            nav a {
+                margin: 0 8px;
+            }
 
-.skills-grid {
-    display: grid;
+            .hero {
+                min-height: 75vh;
+            }
 
-    grid-template-columns: repeat(3, 1fr);
+            .hero h1 {
+                letter-spacing: -3px;
+            }
 
-    gap: 25px;
+            section {
+                padding: 75px 6%;
+            }
 
-    margin-top: 50px;
-}
+            .work-grid {
+                display: flex;
 
-.skill-box {
-    background: white;
+                flex-direction: column;
+            }
 
-    padding: 40px;
+            .work-card:nth-child(2),
+            .work-card:nth-child(4) {
+                margin-top: 0;
+            }
 
-    min-height: 230px;
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
 
-    border-radius: 25px;
+            .music-symbol {
+                opacity: 0.2;
+            }
 
-    transition:
-        transform 0.3s ease;
-}
+        }
 
-.skill-box:hover {
-    transform: translateY(-7px);
-}
-
-.skill-box h3 {
-    font-size: 26px;
-
-    margin-bottom: 20px;
-}
-
-.skill-box p {
-    color: #526474;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================
-   CONTACT
-========================================= */
-
-.contact {
-    text-align: center;
-
-    background: #f8fbff;
-
-    padding-top: 140px;
-
-    padding-bottom: 140px;
-}
-
-.contact p {
-    color: #526474;
-
-    margin-bottom: 30px;
-
-    font-size: 18px;
-}
-
-
-/* =========================================
-   FOOTER
-========================================= */
-
-footer {
-    position: relative;
-
-    z-index: 5;
-
-    text-align: center;
-
-    padding: 30px;
-
-    background: #edf6fc;
-
-    color: #526474;
-
-    font-size: 13px;
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 750px) {
-
-    body {
-        cursor: auto;
-    }
-
-    .custom-cursor {
-        display: none;
-    }
-
-    header {
-        flex-direction: column;
-
-        gap: 20px;
-    }
-
-    nav a {
-        margin: 0 8px;
-    }
-
-    .hero {
-        min-height: 75vh;
-    }
-
-    .hero h1 {
-        letter-spacing: -3px;
-    }
-
-    section {
-        padding: 75px 6%;
-    }
-
-    .project {
-        margin-bottom: 90px;
-
-        padding-bottom: 60px;
-    }
-
-    .project:nth-child(even) {
-        padding-left: 0;
-    }
-
-    .project-title,
-    .project:nth-child(even) .project-title {
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 10px;
-    }
-
-    .project-image,
-    .project:nth-child(even) .project-image {
-        height: 330px;
-    }
-
-    .project-info {
-        grid-template-columns: 1fr;
-
-        gap: 15px;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .music-symbol {
-        opacity: 0.18;
-    }
-
-}
-
-
-/* =========================================
-   REDUCED MOTION
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-
-        animation-iteration-count: 1 !important;
-
-        scroll-behavior: auto !important;
-
-        transition-duration: 0.01ms !important;
-    }
-
-}
-
-</style>
+    </style>
 </head>
 
 
 <body>
 
 
-<!-- =========================================
-     CUSTOM CURSOR
-========================================= -->
+    <!-- =========================================
+         CUSTOM CURSOR
+    ========================================= -->
 
-<div class="custom-cursor" id="customCursor">♪</div>
-
-
-<!-- =========================================
-     FLOATING MUSIC SYMBOLS
-========================================= -->
-
-<div class="music-symbols">
-
-    <div class="music-symbol symbol1">♫</div>
-    <div class="music-symbol symbol2">♪</div>
-    <div class="music-symbol symbol3">♬</div>
-    <div class="music-symbol symbol4">♩</div>
-    <div class="music-symbol symbol5">♫</div>
-    <div class="music-symbol symbol6">♪</div>
-    <div class="music-symbol symbol7">♬</div>
-    <div class="music-symbol symbol8">♩</div>
-    <div class="music-symbol symbol9">♪</div>
-    <div class="music-symbol symbol10">♫</div>
-
-</div>
+    <div class="custom-cursor" id="customCursor">♪</div>
 
 
-<!-- =========================================
-     HEADER
-========================================= -->
+    <!-- =========================================
+         FLOATING MUSIC SYMBOLS
+    ========================================= -->
 
-<header>
+    <div class="music-symbols">
 
-    <div class="logo">
-        TAYLA KANE
+        <div class="music-symbol symbol1">♫</div>
+
+        <div class="music-symbol symbol2">♪</div>
+
+        <div class="music-symbol symbol3">♬</div>
+
+        <div class="music-symbol symbol4">♩</div>
+
+        <div class="music-symbol symbol5">♫</div>
+
+        <div class="music-symbol symbol6">♪</div>
+
+        <div class="music-symbol symbol7">♬</div>
+
+        <div class="music-symbol symbol8">♩</div>
+
+        <div class="music-symbol symbol9">♪</div>
+
+        <div class="music-symbol symbol10">♫</div>
+
     </div>
 
-    <nav>
 
-        <a href="#about">About</a>
+    <!-- =========================================
+         HEADER
+    ========================================= -->
 
-        <a href="#work">Work</a>
+    <header>
 
-        <a href="#skills">Skills</a>
-
-        <a href="#contact">Contact</a>
-
-    </nav>
-
-</header>
-
-
-<main>
-
-
-<!-- =========================================
-     HERO
-========================================= -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <div class="small-heading">
-            Sound · Music · Creative Practice
+        <div class="logo">
+            TAYLA KANE
         </div>
 
+        <nav>
 
-        <h1>
+            <a href="#about">
+                About
+            </a>
 
-            <span class="word">I</span>
-            <span class="word">MAKE</span>
-            <span class="word blue">THINGS</span>
-            <span class="word">YOU</span>
-            <span class="word">CAN</span>
-            <span class="word blue">HEAR.</span>
+            <a href="#work">
+                Work
+            </a>
 
-        </h1>
+            <a href="#skills">
+                Skills
+            </a>
 
+            <a href="#contact">
+                Contact
+            </a>
 
-        <p>
-            Exploring sound across creative projects, music production,
-            performance, live environments and everything in between.
-        </p>
+        </nav>
 
-
-        <a class="button" href="#work">
-            Explore my work →
-        </a>
-
-    </div>
-
-</section>
+    </header>
 
 
-<!-- =========================================
-     ABOUT
-========================================= -->
+    <!-- =========================================
+         MAIN
+    ========================================= -->
 
-<section class="about" id="about">
-
-    <div class="section-label">
-        01 — About
-    </div>
-
-    <h2>
-        Sound in every setting.
-    </h2>
-
-    <p class="about-text">
-
-        I'm a Creative Industries student with a passion for sound and music.
-        My experience spans sound editing, recording, music production,
-        audio mixing and live production. I'm interested in exploring
-        different areas of the sound and music industries and seeing
-        where each project takes me.
-
-    </p>
-
-</section>
+    <main>
 
 
-<!-- =========================================
-     WORK
-========================================= -->
+        <!-- HERO -->
 
-<section class="work" id="work">
+        <section class="hero">
 
-    <div class="section-label">
-        02 — Selected Work
-    </div>
+            <div class="hero-content">
 
-    <h2>
-        Things I've made.
-    </h2>
-
-    <p class="work-intro">
-
-        A collection of projects exploring sound, music, production
-        and creative practice.
-
-    </p>
+                <div class="small-heading">
+                    Sound · Music · Creative Practice
+                </div>
 
 
-    <!-- PROJECT 01 -->
+                <h1>
 
-    <article class="project">
+                    <span class="word">I</span>
+                    <span class="word">MAKE</span>
+                    <span class="word blue">THINGS</span>
+                    <span class="word">YOU</span>
+                    <span class="word">CAN</span>
+                    <span class="word blue">HEAR.</span>
 
-        <div class="project-number">
-            01
-        </div>
+                </h1>
 
-        <div class="project-title">
-
-            <h3>
-                Judas Kiss
-            </h3>
-
-            <div class="project-type">
-                Sound Editing · Continuity
-            </div>
-
-        </div>
-
-
-        <div class="project-image">
-
-            <!--
-            ADD YOUR JUDAS KISS IMAGE HERE.
-
-            Example:
-
-            <img src="judas-kiss.jpg" alt="Judas Kiss project">
-
-            -->
-
-            <div class="image-placeholder">
-
-                <span>♫</span>
 
                 <p>
-                    Project Image
+                    Exploring sound across creative projects, music production,
+                    performance, live environments and everything in between.
                 </p>
 
-            </div>
 
-        </div>
-
-
-        <div class="project-info">
-
-            <h4>
-                About the project
-            </h4>
-
-            <p>
-                Sound editing and continuity work for a short film,
-                working between completed visual elements and a final deadline.
-            </p>
-
-        </div>
-
-    </article>
-
-
-    <!-- PROJECT 02 -->
-
-    <article class="project">
-
-        <div class="project-number">
-            02
-        </div>
-
-        <div class="project-title">
-
-            <h3>
-                The Lost Piano
-            </h3>
-
-            <div class="project-type">
-                Composition · Sound Design
-            </div>
-
-        </div>
-
-
-        <div class="project-image">
-
-            <!--
-            ADD YOUR LOST PIANO IMAGE HERE.
-
-            Example:
-
-            <img src="the-lost-piano.jpg" alt="The Lost Piano project">
-
-            -->
-
-            <div class="image-placeholder">
-
-                <span>♬</span>
-
-                <p>
-                    Project Image
-                </p>
+                <a class="button" href="#work">
+                    Explore my work →
+                </a>
 
             </div>
 
-        </div>
+        </section>
 
 
-        <div class="project-info">
+        <!-- ABOUT -->
 
-            <h4>
-                About the project
-            </h4>
+        <section class="about" id="about">
 
-            <p>
-                Original composition and sound design created to support
-                reflection, tension and memory through changes in
-                instrumentation, dynamics and musical motifs.
-            </p>
-
-        </div>
-
-    </article>
-
-
-    <!-- PROJECT 03 -->
-
-    <article class="project">
-
-        <div class="project-number">
-            03
-        </div>
-
-        <div class="project-title">
-
-            <h3>
-                Music Production
-            </h3>
-
-            <div class="project-type">
-                Logic Pro · Ableton Live
+            <div class="section-label">
+                01 — About
             </div>
 
-        </div>
+            <h2>
+                Sound in every setting.
+            </h2>
+
+            <p class="about-text">
+
+                I'm a Creative Industries student with a passion for sound and music.
+                My experience spans sound editing, recording, music production,
+                audio mixing and live production. I'm interested in exploring
+                different areas of the sound and music industries and seeing
+                where each project takes me.
+
+            </p>
+
+        </section>
 
 
-        <div class="project-image">
+        <!-- WORK -->
 
-            <!--
-            ADD YOUR MUSIC PRODUCTION IMAGE HERE.
+        <section class="work" id="work">
 
-            Example:
+            <div class="section-label">
+                02 — Selected Work
+            </div>
 
-            <img src="music-production.jpg" alt="Music production project">
+            <h2>
+                Things I've made.
+            </h2>
 
-            -->
+            <p class="work-intro">
 
-            <div class="image-placeholder">
+                A selection of projects exploring sound, music, production
+                and creative practice.
 
-                <span>♪</span>
+            </p>
 
-                <p>
-                    Project Image
-                </p>
+
+            <div class="work-grid">
+
+
+                <!-- PROJECT 1 -->
+
+                <div class="work-card">
+
+                    <div>
+
+                        <div class="work-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Judas Kiss
+                        </h3>
+
+                        <p>
+                            Sound editing and continuity work for a short film,
+                            working between completed visual elements and a final deadline.
+                        </p>
+
+                    </div>
+
+                    <div class="work-tag">
+                        Sound Editing · Continuity
+                    </div>
+
+                </div>
+
+
+                <!-- PROJECT 2 -->
+
+                <div class="work-card">
+
+                    <div>
+
+                        <div class="work-number">
+                            02
+                        </div>
+
+                        <h3>
+                            The Lost Piano
+                        </h3>
+
+                        <p>
+                            Original composition and sound design created
+                            to support reflection, tension and memory.
+                        </p>
+
+                    </div>
+
+                    <div class="work-tag">
+                        Composition · Sound Design
+                    </div>
+
+                </div>
+
+
+                <!-- PROJECT 3 -->
+
+                <div class="work-card">
+
+                    <div>
+
+                        <div class="work-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Music Production
+                        </h3>
+
+                        <p>
+                            Original music created using digital audio workstations,
+                            exploring production, arrangement, recording and mixing.
+                        </p>
+
+                    </div>
+
+                    <div class="work-tag">
+                        Logic Pro · Ableton Live
+                    </div>
+
+                </div>
+
+
+                <!-- PROJECT 4 -->
+
+                <div class="work-card">
+
+                    <div>
+
+                        <div class="work-number">
+                            04
+                        </div>
+
+                        <h3>
+                            Live Production
+                        </h3>
+
+                        <p>
+                            Audio and broadcast experience across live environments,
+                            including microphone setup, mixing and production support.
+                        </p>
+
+                    </div>
+
+                    <div class="work-tag">
+                        Live Audio · Broadcast
+                    </div>
+
+                </div>
+
 
             </div>
 
-        </div>
+        </section>
 
 
-        <div class="project-info">
+        <!-- SKILLS -->
 
-            <h4>
-                About the project
-            </h4>
+        <section class="skills" id="skills">
 
-            <p>
-                Original music created using digital audio workstations,
-                exploring production, arrangement, recording, sound
-                selection and mixing.
-            </p>
-
-        </div>
-
-    </article>
-
-
-    <!-- PROJECT 04 -->
-
-    <article class="project">
-
-        <div class="project-number">
-            04
-        </div>
-
-        <div class="project-title">
-
-            <h3>
-                Live Production
-            </h3>
-
-            <div class="project-type">
-                Live Audio · Broadcast
+            <div class="section-label">
+                03 — Capabilities
             </div>
 
-        </div>
+            <h2>
+                What's on the desk?
+            </h2>
 
 
-        <div class="project-image">
+            <div class="skills-grid">
 
-            <!--
-            ADD YOUR LIVE PRODUCTION IMAGE HERE.
 
-            Example:
+                <div class="skill-box">
 
-            <img src="live-production.jpg" alt="Live production project">
+                    <h3>
+                        Sound
+                    </h3>
 
-            -->
+                    <p>
+                        Sound Editing · Sound Recording · Sound Design ·
+                        Sound Effects · Continuity · Adobe Premiere Pro
+                    </p>
 
-            <div class="image-placeholder">
+                </div>
 
-                <span>♩</span>
 
-                <p>
-                    Project Image
-                </p>
+                <div class="skill-box">
+
+                    <h3>
+                        Music
+                    </h3>
+
+                    <p>
+                        Music Production · Composition · Audio Mixing ·
+                        Logic Pro · Ableton Live · Pro Tools · Microphone Setup
+                    </p>
+
+                </div>
+
+
+                <div class="skill-box">
+
+                    <h3>
+                        Live
+                    </h3>
+
+                    <p>
+                        Live Audio Mixing · Broadcast · Microphone Setup ·
+                        QLab · Sound Effects · Live Production
+                    </p>
+
+                </div>
+
 
             </div>
 
-        </div>
+        </section>
 
 
-        <div class="project-info">
+        <!-- CONTACT -->
 
-            <h4>
-                About the project
-            </h4>
+        <section class="contact" id="contact">
 
-            <p>
-                Audio and broadcast experience across live environments,
-                including microphone setup, audio mixing and production support.
-            </p>
+            <div class="section-label">
+                04 — Contact
+            </div>
 
-        </div>
-
-    </article>
-
-
-</section>
-
-
-<!-- =========================================
-     SKILLS
-========================================= -->
-
-<section class="skills" id="skills">
-
-    <div class="section-label">
-        03 — Capabilities
-    </div>
-
-    <h2>
-        What's on the desk?
-    </h2>
-
-
-    <div class="skills-grid">
-
-
-        <div class="skill-box">
-
-            <h3>
-                Sound
-            </h3>
+            <h2>
+                Let's make something.
+            </h2>
 
             <p>
-                Sound Editing · Sound Recording · Sound Design ·
-                Sound Effects · Continuity · Adobe Premiere Pro
+                Interested in working together or want to get in touch?
             </p>
 
-        </div>
+            <a class="button" href="mailto:YOUR-EMAIL@example.com">
+                Get in touch →
+            </a>
 
+        </section>
 
-        <div class="skill-box">
 
-            <h3>
-                Music
-            </h3>
+    </main>
 
-            <p>
-                Music Production · Composition · Audio Mixing ·
-                Logic Pro · Ableton Live · Pro Tools · Microphone Setup
-            </p>
 
-        </div>
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
 
+    <footer>
 
-        <div class="skill-box">
+        © 2026 Tayla Kane · Sound & Music
 
-            <h3>
-                Live
-            </h3>
+    </footer>
 
-            <p>
-                Live Audio Mixing · Broadcast · Microphone Setup ·
-                QLab · Sound Effects · Live Production
-            </p>
 
-        </div>
+    <!-- =========================================
+         CUSTOM CURSOR JAVASCRIPT
+    ========================================= -->
 
+    <script>
 
-    </div>
+        const cursor = document.getElementById("customCursor");
 
-</section>
+        let mouseX = 0;
+        let mouseY = 0;
 
+        let cursorX = 0;
+        let cursorY = 0;
 
-<!-- =========================================
-     CONTACT
-========================================= -->
+        document.addEventListener("mousemove", function(event) {
 
-<section class="contact" id="contact">
+            mouseX = event.clientX;
+            mouseY = event.clientY;
 
-    <div class="section-label">
-        04 — Contact
-    </div>
+        });
 
-    <h2>
-        Let's make something.
-    </h2>
 
-    <p>
-        Interested in working together or want to get in touch?
-    </p>
+        /* Smooth cursor movement */
 
-    <a class="button" href="mailto:YOUR-EMAIL@example.com">
-        Get in touch →
-    </a>
+        function moveCursor() {
 
-</section>
+            cursorX += (mouseX - cursorX) * 0.15;
+            cursorY += (mouseY - cursorY) * 0.15;
 
+            cursor.style.left = cursorX + "px";
+            cursor.style.top = cursorY + "px";
 
-</main>
-
-
-<!-- =========================================
-     FOOTER
-========================================= -->
-
-<footer>
-
-    © 2026 Tayla Kane · Sound & Music
-
-</footer>
-
-
-<!-- =========================================
-     JAVASCRIPT
-========================================= -->
-
-<script>
-
-const cursor = document.getElementById("customCursor");
-
-let mouseX = 0;
-let mouseY = 0;
-
-let cursorX = 0;
-let cursorY = 0;
-
-
-/* Track mouse */
-
-document.addEventListener("mousemove", function(event) {
-
-    mouseX = event.clientX;
-    mouseY = event.clientY;
-
-});
-
-
-/* Smooth cursor movement */
-
-function moveCursor() {
-
-    cursorX += (mouseX - cursorX) * 0.15;
-    cursorY += (mouseY - cursorY) * 0.15;
-
-    cursor.style.left = cursorX + "px";
-    cursor.style.top = cursorY + "px";
-
-    requestAnimationFrame(moveCursor);
-
-}
-
-moveCursor();
-
-
-/* =========================================
-   MUSIC NOTE TRAIL
-========================================= */
-
-let lastTrailTime = 0;
-
-document.addEventListener("mousemove", function(event) {
-
-    const now = Date.now();
-
-    if (now - lastTrailTime < 130) {
-        return;
-    }
-
-    lastTrailTime = now;
-
-
-    const note = document.createElement("div");
-
-    note.className = "cursor-note";
-
-
-    const notes = [
-        "♪",
-        "♫",
-        "♬",
-        "♩"
-    ];
-
-
-    note.innerText =
-        notes[Math.floor(Math.random() * notes.length)];
-
-
-    note.style.left =
-        event.clientX + "px";
-
-    note.style.top =
-        event.clientY + "px";
-
-
-    document.body.appendChild(note);
-
-
-    setTimeout(function() {
-
-        note.remove();
-
-    }, 800);
-
-});
-
-
-/* =========================================
-   CURSOR HOVER EFFECT
-========================================= */
-
-const interactiveElements =
-    document.querySelectorAll("a, button");
-
-
-interactiveElements.forEach(function(element) {
-
-    element.addEventListener(
-        "mouseenter",
-        function() {
-
-            cursor.classList.add("hover");
+            requestAnimationFrame(moveCursor);
 
         }
-    );
+
+        moveCursor();
 
 
-    element.addEventListener(
-        "mouseleave",
-        function() {
+        /* =========================================
+           CURSOR TRAIL
+        ========================================= */
 
-            cursor.classList.remove("hover");
+        let lastTrailTime = 0;
 
-        }
-    );
+        document.addEventListener("mousemove", function(event) {
 
-});
+            const now = Date.now();
+
+            if (now - lastTrailTime < 120) {
+                return;
+            }
+
+            lastTrailTime = now;
+
+            const note = document.createElement("div");
+
+            note.className = "cursor-note";
+
+            const notes = ["♪", "♫", "♬", "♩"];
+
+            note.innerText =
+                notes[Math.floor(Math.random() * notes.length)];
+
+            note.style.left = event.clientX + "px";
+            note.style.top = event.clientY + "px";
+
+            document.body.appendChild(note);
+
+            setTimeout(function() {
+
+                note.remove();
+
+            }, 800);
+
+        });
 
 
-</script>
+        /* =========================================
+           MAKE CURSOR CHANGE WHEN HOVERING
+           ========================================= */
+
+        const interactiveElements =
+            document.querySelectorAll("a, button");
+
+        interactiveElements.forEach(function(element) {
+
+            element.addEventListener("mouseenter", function() {
+
+                cursor.classList.add("hover");
+
+            });
+
+            element.addEventListener("mouseleave", function() {
+
+                cursor.classList.remove("hover");
+
+            });
+
+        });
+
+    </script>
 
 
 </body>
