@@ -519,13 +519,12 @@
             margin-bottom: 60px;
         }
 
-        .work-grid {
-            display: grid;
-
-            grid-template-columns: repeat(12, 1fr);
-
-            gap: 25px;
-        }
+      .work-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 25px;
+    align-items: start;
+}
 
     .work-card {
     background: white;
@@ -554,7 +553,7 @@ justify-content: flex-start;
 }
 
 .work-card:nth-child(2) {
-    grid-column: 7 / span 5;
+    grid-column: 7 / span 4;
     margin-top: 35px;
     background: #e1f1fb;
 }
