@@ -71,14 +71,20 @@
     font-size: 13px;
     margin-bottom: 40px;
 }
-
+        
+.project-content {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 70px;
+    align-items: start;
+}
+        
 .project-image-wrap {
     background: #e1f1fb;
     padding: 20px;
     border-radius: 25px;
-
-    max-width: 420px;
-    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .project-image {
@@ -130,29 +136,41 @@
 
 </section>
 
-        <div class="project-info">
+       <div class="project-content">
 
-            <h2>About the Project</h2>
+    <div class="project-image-wrap">
+        <img
+            src="judas-kiss.png"
+            alt="Judas Kiss short film"
+            class="project-image"
+        >
+    </div>
 
-            <p>
-                Add your description of Judas Kiss here.
-            </p>
+    <div class="project-info">
 
-            <h2>My Role</h2>
+        <h2>About the Project</h2>
 
-            <p>
-                Add information about your work as the sound editor
-                and continuity advisor here.
-            </p>
+        <p>
+            Add your description of Judas Kiss here.
+        </p>
 
-            <h2>What I Worked On</h2>
+        <h2>My Role</h2>
 
-            <p>
-                Add more detail about the sound editing process,
-                tools, challenges and final outcome here.
-            </p>
+        <p>
+            Add information about your work as the sound editor
+            and continuity advisor here.
+        </p>
 
-        </div>
+        <h2>What I Worked On</h2>
+
+        <p>
+            Add more detail about the sound editing process,
+            tools, challenges and final outcome here.
+        </p>
+
+    </div>
+
+</div>
 
     </main>
 
