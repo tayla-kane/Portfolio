@@ -1,1514 +1,1702 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tayla Kane | Sound & Music</title>
+
+    <style>
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8fbff;
+            color: #1d2a38;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           CUSTOM CURSOR
+        ========================= */
+
+        .cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+
+            font-size: 28px;
+            color: #75add3;
+
+            transform: translate(-50%, -50%);
+            transition: transform 0.08s ease;
+        }
+
+        .cursor-trail {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+
+            font-size: 15px;
+            color: #9bc8e5;
+
+            animation: trailFade 0.8s linear forwards;
+        }
+
+        @keyframes trailFade {
+            0% {
+                opacity: 0.8;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -80%) scale(0.4);
+            }
+        }
+
+
+        /* =========================
+           FLOATING MUSIC SYMBOLS
+        ========================= */
+
+        .music-symbols {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .music-symbol {
+            position: absolute;
+            color: #b9d9ec;
+            opacity: 0.65;
+
+            animation: floatMusic 7s ease-in-out infinite;
+        }
+
+        .music-symbol:nth-child(1) {
+            left: 8%;
+            top: 15%;
+            font-size: 35px;
+            animation-delay: 0s;
+        }
+
+        .music-symbol:nth-child(2) {
+            left: 87%;
+            top: 20%;
+            font-size: 55px;
+            animation-delay: 2s;
+        }
+
+        .music-symbol:nth-child(3) {
+            left: 15%;
+            top: 65%;
+            font-size: 24px;
+            animation-delay: 1s;
+        }
+
+        .music-symbol:nth-child(4) {
+            left: 92%;
+            top: 72%;
+            font-size: 32px;
+            animation-delay: 3s;
+        }
+
+        .music-symbol:nth-child(5) {
+            left: 48%;
+            top: 10%;
+            font-size: 22px;
+            animation-delay: 4s;
+        }
+
+        .music-symbol:nth-child(6) {
+            left: 72%;
+            top: 52%;
+            font-size: 40px;
+            animation-delay: 1.5s;
+        }
+
+        .music-symbol:nth-child(7) {
+            left: 30%;
+            top: 88%;
+            font-size: 30px;
+            animation-delay: 2.5s;
+        }
+
+        @keyframes floatMusic {
+            0%, 100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(8deg);
+            }
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: relative;
+            z-index: 10;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 28px 7%;
+        }
+
+        .logo {
+            font-weight: bold;
+            letter-spacing: 3px;
+            font-size: 16px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            font-size: 14px;
+        }
+
+        nav a {
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #5c9bc5;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+            z-index: 2;
+
+            min-height: 78vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            padding: 80px 10%;
+        }
+
+        .hero-small {
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #609bc2;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            max-width: 900px;
+
+            font-size: clamp(55px, 9vw, 125px);
+            line-height: 0.9;
+            letter-spacing: -5px;
+            font-weight: 800;
+        }
+
+        .hero h1 .word {
+            display: inline-block;
+            animation: titleFloat 4s ease-in-out infinite;
+        }
+
+        .hero h1 .word:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .hero h1 .word:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .hero h1 .word:nth-child(4) {
+            animation-delay: 0.45s;
+        }
+
+        .hero h1 .word:nth-child(5) {
+            animation-delay: 0.6s;
+        }
 
-<title>Tayla Kane | Sound & Music</title>
+        @keyframes titleFloat {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
 
-<style>
+        .hero-description {
+            max-width: 520px;
 
-/* =========================================
-   GENERAL
-========================================= */
+            margin-top: 40px;
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+            font-size: 18px;
+            line-height: 1.6;
 
-html {
-    scroll-behavior: smooth;
-}
+            color: #536777;
+        }
+
+        .scroll-note {
+            margin-top: 60px;
+
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            color: #75add3;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f8fbff;
-    color: #1d2a38;
-    overflow-x: hidden;
-    cursor: none;
-}
+        section {
+            position: relative;
+            z-index: 2;
+            padding: 100px 8%;
+        }
 
-a {
-    color: inherit;
-}
+        .section-label {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #6da5ca;
+
+            margin-bottom: 20px;
+        }
 
+        .section-title {
+            font-size: clamp(35px, 5vw, 65px);
+            margin-bottom: 60px;
+            letter-spacing: -2px;
+        }
 
-/* =========================================
-   CUSTOM MUSIC NOTE CURSOR
-========================================= */
 
-.custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
+        /* =========================
+           WORKS
+        ========================= */
 
-    font-family: Georgia, serif;
-    font-size: 28px;
+        #works {
+            background: #edf6fc;
+        }
 
-    color: #75add3;
+        .works-intro {
+            max-width: 550px;
+            color: #536777;
+            line-height: 1.6;
+            margin-top: -35px;
+            margin-bottom: 55px;
+        }
 
-    pointer-events: none;
-    z-index: 9999;
+        .projects {
+            display: grid;
 
-    transform: translate(-50%, -50%);
+            grid-template-columns: repeat(12, 1fr);
 
-    transition:
-        transform 0.2s ease,
-        color 0.2s ease;
-}
+            gap: 28px;
+            align-items: start;
+        }
 
-.custom-cursor.hover {
-    transform:
-        translate(-50%, -50%)
-        scale(1.5)
-        rotate(10deg);
 
-    color: #4b91bf;
-}
+        /* =========================
+           PROJECT PREVIEWS
+        ========================= */
 
+        .project {
+            position: relative;
 
-/* =========================================
-   CURSOR TRAIL
-========================================= */
+            background: white;
+            border: 1px solid #d9eaf5;
 
-.cursor-note {
-    position: fixed;
+            padding: 15px;
 
-    pointer-events: none;
+            cursor: none;
 
-    font-family: Georgia, serif;
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
 
-    color: #75add3;
+            box-shadow: 0 5px 20px rgba(70, 130, 170, 0.05);
+        }
 
-    font-size: 14px;
+        .project:hover {
+            transform: translateY(-8px) rotate(-1deg);
 
-    z-index: 9998;
+            box-shadow:
+                0 20px 40px rgba(70, 130, 170, 0.12);
+        }
 
-    animation: cursorFade 0.8s ease-out forwards;
-}
+        .project:nth-child(1) {
+            grid-column: 1 / span 5;
+        }
 
-@keyframes cursorFade {
+        .project:nth-child(2) {
+            grid-column: 7 / span 5;
+            margin-top: 60px;
+        }
 
-    0% {
-        opacity: 0.5;
-        transform: translate(-50%, -50%) scale(1);
-    }
+        .project:nth-child(3) {
+            grid-column: 2 / span 4;
+            margin-top: 30px;
+        }
 
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -90%) scale(0.5);
-    }
+        .project:nth-child(4) {
+            grid-column: 7 / span 5;
+            margin-top: 10px;
+        }
 
-}
-
-
-/* =========================================
-   FLOATING MUSIC SYMBOLS
-========================================= */
-
-.music-symbols {
-    position: fixed;
-    inset: 0;
-
-    pointer-events: none;
-
-    overflow: hidden;
-
-    z-index: 1;
-}
-
-.music-symbol {
-    position: absolute;
-
-    color: #75add3;
-
-    opacity: 0.28;
-
-    font-family: Georgia, serif;
-
-    user-select: none;
-
-    animation: floatSymbol 8s ease-in-out infinite;
-}
-
-.symbol1 {
-    font-size: 55px;
-    top: 12%;
-    left: 7%;
-    animation-duration: 7s;
-}
-
-.symbol2 {
-    font-size: 35px;
-    top: 25%;
-    right: 10%;
-    animation-duration: 9s;
-    animation-delay: 1s;
-}
-
-.symbol3 {
-    font-size: 70px;
-    top: 45%;
-    left: 3%;
-    animation-duration: 10s;
-    animation-delay: 2s;
-}
 
-.symbol4 {
-    font-size: 42px;
-    top: 55%;
-    right: 6%;
-    animation-duration: 8s;
-    animation-delay: 3s;
-}
+        /* IMAGE PLACEHOLDER */
 
-.symbol5 {
-    font-size: 30px;
-    top: 72%;
-    left: 12%;
-    animation-duration: 11s;
-}
+        .project-image {
+            width: 100%;
+            height: 210px;
 
-.symbol6 {
-    font-size: 65px;
-    top: 80%;
-    right: 14%;
-    animation-duration: 9s;
-    animation-delay: 4s;
-}
+            background:
+                linear-gradient(
+                    135deg,
+                    #dceef9,
+                    #f5fbff
+                );
 
-.symbol7 {
-    font-size: 38px;
-    top: 88%;
-    left: 45%;
-    animation-duration: 12s;
-}
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-.symbol8 {
-    font-size: 50px;
-    top: 35%;
-    right: 28%;
-    animation-duration: 10s;
-}
+            color: #72a8cb;
 
-.symbol9 {
-    font-size: 28px;
-    top: 65%;
-    right: 35%;
-    animation-duration: 8s;
-}
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
 
-.symbol10 {
-    font-size: 45px;
-    top: 18%;
-    left: 38%;
-    animation-duration: 13s;
-}
+            overflow: hidden;
+        }
 
-@keyframes floatSymbol {
+        .project:nth-child(2) .project-image {
+            height: 240px;
+        }
 
-    0%, 100% {
-        transform: translateY(0) rotate(-5deg);
-    }
+        .project:nth-child(3) .project-image {
+            height: 180px;
+        }
 
-    50% {
-        transform: translateY(-25px) rotate(8deg);
-    }
+        .project:nth-child(4) .project-image {
+            height: 220px;
+        }
 
-}
 
+        /* IF YOU ADD AN IMAGE */
 
-/* =========================================
-   HEADER
-========================================= */
+        .project-image img {
+            width: 100%;
+            height: 100%;
 
-header {
-    position: relative;
-    z-index: 20;
+            object-fit: cover;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+            display: block;
+        }
 
-    padding: 25px 7%;
 
-    background: rgba(248, 251, 255, 0.9);
+        /* PROJECT INFORMATION */
 
-    backdrop-filter: blur(10px);
+        .project-info {
+            padding: 20px 5px 5px;
+        }
 
-    border-bottom: 1px solid #e1edf5;
-}
+        .project-number {
+            font-size: 11px;
+            color: #8ab6d4;
+            letter-spacing: 2px;
+        }
 
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
+        .project h3 {
+            margin-top: 8px;
 
-nav a {
-    text-decoration: none;
+            font-size: 24px;
+            letter-spacing: -0.5px;
+        }
 
-    margin-left: 30px;
+        .project-type {
+            margin-top: 7px;
 
-    font-size: 14px;
+            font-size: 13px;
+            color: #6b7f8e;
+        }
 
-    transition:
-        color 0.3s ease;
-}
+        .click-project {
+            display: inline-block;
 
-nav a:hover {
-    color: #75add3;
-}
+            margin-top: 18px;
 
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
 
-/* =========================================
-   HERO
-========================================= */
+            color: #5d9bc3;
+        }
 
-.hero {
-    position: relative;
-    z-index: 5;
 
-    min-height: 88vh;
+        /* =========================
+           MODAL
+        ========================= */
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+        .modal {
+            position: fixed;
+            inset: 0;
 
-    text-align: center;
+            background: rgba(20, 40, 55, 0.55);
 
-    padding: 80px 7%;
-}
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-.hero-content {
-    max-width: 1100px;
-}
+            padding: 30px;
 
-.small-heading {
-    text-transform: uppercase;
+            z-index: 1000;
 
-    letter-spacing: 5px;
+            opacity: 0;
+            visibility: hidden;
 
-    font-size: 13px;
+            transition:
+                opacity 0.3s ease,
+                visibility 0.3s ease;
+        }
 
-    color: #75add3;
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
 
-    margin-bottom: 30px;
-}
+        .modal-content {
+            position: relative;
 
+            width: min(900px, 100%);
+            max-height: 90vh;
 
-/* =========================================
-   MOVING TITLE
-========================================= */
+            overflow-y: auto;
 
-.hero h1 {
-    font-size: clamp(55px, 10vw, 145px);
+            background: white;
 
-    line-height: 0.88;
+            padding: 35px;
 
-    letter-spacing: -7px;
+            transform: translateY(20px);
 
-    margin-bottom: 40px;
+            transition: transform 0.3s ease;
+        }
 
-    font-weight: 800;
-}
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
 
-.hero h1 .word {
-    display: inline-block;
+        .modal-close {
+            position: absolute;
 
-    animation: titleFloat 5s ease-in-out infinite;
-}
+            top: 15px;
+            right: 20px;
 
-.hero h1 .word:nth-child(1) {
-    animation-delay: 0s;
-}
+            border: none;
+            background: none;
 
-.hero h1 .word:nth-child(2) {
-    animation-delay: 0.2s;
-}
+            font-size: 30px;
+            color: #557080;
 
-.hero h1 .word:nth-child(3) {
-    animation-delay: 0.4s;
-}
+            cursor: none;
+        }
 
-.hero h1 .word:nth-child(4) {
-    animation-delay: 0.6s;
-}
+        .modal-close:hover {
+            color: #75add3;
+        }
 
-.hero h1 .word:nth-child(5) {
-    animation-delay: 0.8s;
-}
+        .modal-image {
+            width: 100%;
+            height: 330px;
 
-.hero h1 .word:nth-child(6) {
-    animation-delay: 1s;
-}
+            background:
+                linear-gradient(
+                    135deg,
+                    #dceef9,
+                    #f5fbff
+                );
 
-.hero h1 .blue {
-    color: #75add3;
-}
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-@keyframes titleFloat {
+            color: #72a8cb;
 
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-    }
+            margin-bottom: 30px;
 
-    50% {
-        transform: translateY(-8px) rotate(-1deg);
-    }
+            overflow: hidden;
+        }
 
-}
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.hero p {
-    max-width: 650px;
+        .modal-number {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #79acd0;
+        }
 
-    margin: 0 auto 35px;
+        .modal-content h2 {
+            margin-top: 8px;
 
-    font-size: 18px;
+            font-size: clamp(35px, 5vw, 60px);
+            letter-spacing: -2px;
+        }
 
-    line-height: 1.7;
+        .modal-type {
+            margin-top: 8px;
 
-    color: #526474;
-}
+            color: #6a7e8d;
+        }
 
+        .modal-description {
+            max-width: 700px;
 
-/* =========================================
-   BUTTON
-========================================= */
+            margin-top: 30px;
 
-.button {
-    display: inline-block;
+            font-size: 17px;
+            line-height: 1.7;
 
-    padding: 15px 28px;
+            color: #445867;
+        }
 
-    border: 2px solid #75add3;
+        .modal-skills {
+            display: flex;
+            flex-wrap: wrap;
 
-    border-radius: 50px;
+            gap: 10px;
 
-    text-decoration: none;
+            margin-top: 25px;
+        }
 
-    font-weight: bold;
+        .modal-skills span {
+            background: #edf6fc;
 
-    transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        transform 0.3s ease;
-}
+            padding: 8px 13px;
 
-.button:hover {
-    background: #75add3;
+            font-size: 12px;
+            color: #548db2;
+        }
 
-    color: white;
+        .media-note {
+            margin-top: 30px;
 
-    transform: translateY(-4px);
-}
+            padding: 18px;
 
+            background: #f4f9fc;
 
-/* =========================================
-   GENERAL SECTIONS
-========================================= */
+            font-size: 13px;
+            line-height: 1.5;
 
-section {
-    position: relative;
+            color: #668090;
+        }
 
-    z-index: 5;
 
-    padding: 110px 7%;
-}
+        /* =========================
+           SKILLS
+        ========================= */
 
-.section-label {
-    text-transform: uppercase;
+        #skills {
+            background: white;
+        }
 
-    letter-spacing: 4px;
+        .skills-grid {
+            display: grid;
 
-    font-size: 12px;
+            grid-template-columns: repeat(3, 1fr);
 
-    color: #75add3;
+            gap: 25px;
+        }
 
-    margin-bottom: 15px;
-}
+        .skill-group {
+            padding: 30px;
 
-section h2 {
-    font-size: clamp(42px, 6vw, 80px);
+            border-top: 2px solid #acd3eb;
+        }
 
-    letter-spacing: -4px;
+        .skill-group h3 {
+            margin-bottom: 20px;
+            font-size: 21px;
+        }
 
-    margin-bottom: 30px;
-}
+        .skill-group p {
+            color: #607583;
+            line-height: 1.8;
+        }
 
 
-/* =========================================
-   ABOUT
-========================================= */
+        /* =========================
+           CONTACT
+        ========================= */
 
-.about {
-    background: #edf6fc;
-}
+        #contact {
+            background: #e1f1fb;
 
-.about-text {
-    max-width: 800px;
+            text-align: center;
+        }
 
-    font-size: 20px;
+        .contact-text {
+            max-width: 600px;
 
-    line-height: 1.8;
+            margin: 0 auto 35px;
 
-    color: #526474;
-}
+            color: #526b7b;
 
+            line-height: 1.7;
+        }
 
-/* =========================================
-   WORK
-========================================= */
+        .contact-button {
+            display: inline-block;
 
-.work {
-    background: #f8fbff;
+            padding: 15px 25px;
 
-    padding-top: 130px;
-    padding-bottom: 130px;
-}
+            border: 1px solid #75add3;
 
-.work-intro {
-    max-width: 650px;
+            color: #4f91bb;
 
-    color: #526474;
+            transition: all 0.25s ease;
+        }
 
-    line-height: 1.7;
+        .contact-button:hover {
+            background: #75add3;
+            color: white;
+        }
 
-    margin-bottom: 90px;
-}
 
+        /* =========================
+           FOOTER
+        ========================= */
 
-/* =========================================
-   PROJECT
-========================================= */
+        footer {
+            position: relative;
+            z-index: 2;
 
-.project {
-    position: relative;
+            padding: 30px 8%;
 
-    margin-bottom: 150px;
+            background: #f8fbff;
 
-    padding-bottom: 80px;
+            color: #78909e;
 
-    border-bottom: 1px solid #dceaf3;
-}
+            font-size: 12px;
+        }
 
-.project:last-child {
-    margin-bottom: 0;
-}
 
+        /* =========================
+           MOBILE
+        ========================= */
 
-/* PROJECT NUMBER */
+        @media (max-width: 800px) {
 
-.project-number {
-    font-size: 13px;
+            body {
+                cursor: auto;
+            }
 
-    letter-spacing: 3px;
+            .cursor {
+                display: none;
+            }
 
-    color: #75add3;
+            .cursor-trail {
+                display: none;
+            }
 
-    margin-bottom: 15px;
-}
+            header {
+                padding: 25px;
+            }
 
+            nav {
+                gap: 15px;
+            }
 
-/* PROJECT TITLE */
+            .hero {
+                padding: 80px 25px;
+            }
 
-.project-title {
-    display: flex;
+            .hero h1 {
+                letter-spacing: -3px;
+            }
 
-    justify-content: space-between;
+            section {
+                padding: 75px 25px;
+            }
 
-    align-items: baseline;
+            .projects {
+                display: flex;
+                flex-direction: column;
+            }
 
-    gap: 30px;
+            .project,
+            .project:nth-child(1),
+            .project:nth-child(2),
+            .project:nth-child(3),
+            .project:nth-child(4) {
+                width: 100%;
+                margin-top: 0;
+            }
 
-    margin-bottom: 35px;
-}
+            .project-image,
+            .project:nth-child(2) .project-image,
+            .project:nth-child(3) .project-image,
+            .project:nth-child(4) .project-image {
+                height: 210px;
+            }
 
-.project-title h3 {
-    font-size: clamp(38px, 6vw, 75px);
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
 
-    letter-spacing: -3px;
+            .modal {
+                padding: 15px;
+            }
 
-    font-weight: 700;
-}
+            .modal-content {
+                padding: 25px;
+            }
 
-.project-type {
-    font-size: 12px;
+            .modal-image {
+                height: 220px;
+            }
 
-    text-transform: uppercase;
+            .music-symbol {
+                opacity: 0.35;
+            }
+        }
 
-    letter-spacing: 2px;
 
-    color: #75add3;
+        /* =========================
+           REDUCED MOTION
+        ========================= */
 
-    white-space: nowrap;
-}
+        @media (prefers-reduced-motion: reduce) {
 
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
 
-/* =========================================
-   PROJECT IMAGE AREA
-========================================= */
-
-.project-image {
-    width: 100%;
-
-    height: 520px;
-
-    border-radius: 4px;
-
-    background: #e1f1fb;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    overflow: hidden;
-
-    position: relative;
-
-    transition:
-        transform 0.5s ease,
-        box-shadow 0.5s ease;
-}
-
-
-/*
-   When you add an image, put it inside
-   .project-image.
-*/
-
-.project-image img {
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-
-    transition:
-        transform 0.6s ease;
-}
-
-.project:hover .project-image {
-    transform: translateY(-6px);
-
-    box-shadow:
-        0 25px 50px rgba(50, 100, 130, 0.12);
-}
-
-.project:hover .project-image img {
-    transform: scale(1.03);
-}
-
-
-/* PLACEHOLDER TEXT */
-
-.image-placeholder {
-    text-align: center;
-
-    color: #75add3;
-}
-
-.image-placeholder span {
-    display: block;
-
-    font-size: 55px;
-
-    font-family: Georgia, serif;
-
-    margin-bottom: 15px;
-
-    opacity: 0.6;
-}
-
-.image-placeholder p {
-    font-size: 12px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 3px;
-}
-
-
-/* =========================================
-   PROJECT DESCRIPTION
-========================================= */
-
-.project-info {
-    display: grid;
-
-    grid-template-columns: 1fr 2fr;
-
-    gap: 60px;
-
-    margin-top: 30px;
-}
-
-.project-info h4 {
-    font-size: 14px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 2px;
-
-    color: #75add3;
-}
-
-.project-info p {
-    max-width: 700px;
-
-    color: #526474;
-
-    line-height: 1.8;
-
-    font-size: 16px;
-}
-
-
-/* =========================================
-   ALTERNATING PROJECT IMAGE SIZES
-========================================= */
-
-.project:nth-child(even) {
-    padding-left: 8%;
-}
-
-.project:nth-child(even) .project-image {
-    height: 450px;
-}
-
-.project:nth-child(even) .project-title {
-    flex-direction: row-reverse;
-}
-
-
-/* =========================================
-   SKILLS
-========================================= */
-
-.skills {
-    background: #e1f1fb;
-}
-
-.skills-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 25px;
-
-    margin-top: 50px;
-}
-
-.skill-box {
-    background: white;
-
-    padding: 40px;
-
-    min-height: 230px;
-
-    border-radius: 25px;
-
-    transition:
-        transform 0.3s ease;
-}
-
-.skill-box:hover {
-    transform: translateY(-7px);
-}
-
-.skill-box h3 {
-    font-size: 26px;
-
-    margin-bottom: 20px;
-}
-
-.skill-box p {
-    color: #526474;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================
-   CONTACT
-========================================= */
-
-.contact {
-    text-align: center;
-
-    background: #f8fbff;
-
-    padding-top: 140px;
-
-    padding-bottom: 140px;
-}
-
-.contact p {
-    color: #526474;
-
-    margin-bottom: 30px;
-
-    font-size: 18px;
-}
-
-
-/* =========================================
-   FOOTER
-========================================= */
-
-footer {
-    position: relative;
-
-    z-index: 5;
-
-    text-align: center;
-
-    padding: 30px;
-
-    background: #edf6fc;
-
-    color: #526474;
-
-    font-size: 13px;
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 750px) {
-
-    body {
-        cursor: auto;
-    }
-
-    .custom-cursor {
-        display: none;
-    }
-
-    header {
-        flex-direction: column;
-
-        gap: 20px;
-    }
-
-    nav a {
-        margin: 0 8px;
-    }
-
-    .hero {
-        min-height: 75vh;
-    }
-
-    .hero h1 {
-        letter-spacing: -3px;
-    }
-
-    section {
-        padding: 75px 6%;
-    }
-
-    .project {
-        margin-bottom: 90px;
-
-        padding-bottom: 60px;
-    }
-
-    .project:nth-child(even) {
-        padding-left: 0;
-    }
-
-    .project-title,
-    .project:nth-child(even) .project-title {
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 10px;
-    }
-
-    .project-image,
-    .project:nth-child(even) .project-image {
-        height: 330px;
-    }
-
-    .project-info {
-        grid-template-columns: 1fr;
-
-        gap: 15px;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .music-symbol {
-        opacity: 0.18;
-    }
-
-}
-
-
-/* =========================================
-   REDUCED MOTION
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-
-        animation-iteration-count: 1 !important;
-
-        scroll-behavior: auto !important;
-
-        transition-duration: 0.01ms !important;
-    }
-
-}
-
-</style>
+    </style>
 </head>
 
 
 <body>
 
 
-<!-- =========================================
-     CUSTOM CURSOR
-========================================= -->
+    <!-- =========================
+         CUSTOM CURSOR
+    ========================= -->
 
-<div class="custom-cursor" id="customCursor">♪</div>
-
-
-<!-- =========================================
-     FLOATING MUSIC SYMBOLS
-========================================= -->
-
-<div class="music-symbols">
-
-    <div class="music-symbol symbol1">♫</div>
-    <div class="music-symbol symbol2">♪</div>
-    <div class="music-symbol symbol3">♬</div>
-    <div class="music-symbol symbol4">♩</div>
-    <div class="music-symbol symbol5">♫</div>
-    <div class="music-symbol symbol6">♪</div>
-    <div class="music-symbol symbol7">♬</div>
-    <div class="music-symbol symbol8">♩</div>
-    <div class="music-symbol symbol9">♪</div>
-    <div class="music-symbol symbol10">♫</div>
-
-</div>
+    <div class="cursor" id="cursor">♪</div>
 
 
-<!-- =========================================
-     HEADER
-========================================= -->
+    <!-- =========================
+         FLOATING MUSIC SYMBOLS
+    ========================= -->
 
-<header>
+    <div class="music-symbols">
 
-    <div class="logo">
-        TAYLA KANE
+        <span class="music-symbol">♪</span>
+        <span class="music-symbol">♫</span>
+        <span class="music-symbol">♬</span>
+        <span class="music-symbol">♩</span>
+        <span class="music-symbol">♭</span>
+        <span class="music-symbol">♯</span>
+        <span class="music-symbol">𝄞</span>
+
     </div>
 
-    <nav>
 
-        <a href="#about">About</a>
+    <!-- =========================
+         HEADER
+    ========================= -->
 
-        <a href="#work">Work</a>
+    <header>
 
-        <a href="#skills">Skills</a>
-
-        <a href="#contact">Contact</a>
-
-    </nav>
-
-</header>
-
-
-<main>
-
-
-<!-- =========================================
-     HERO
-========================================= -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <div class="small-heading">
-            Sound · Music · Creative Practice
+        <div class="logo">
+            TAYLA KANE
         </div>
 
+        <nav>
 
-        <h1>
+            <a href="#about">About</a>
+            <a href="#works">Work</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
 
-            <span class="word">I</span>
-            <span class="word">MAKE</span>
-            <span class="word blue">THINGS</span>
-            <span class="word">YOU</span>
-            <span class="word">CAN</span>
-            <span class="word blue">HEAR.</span>
+        </nav>
 
-        </h1>
-
-
-        <p>
-            Exploring sound across creative projects, music production,
-            performance, live environments and everything in between.
-        </p>
+    </header>
 
 
-        <a class="button" href="#work">
-            Explore my work →
-        </a>
+    <!-- =========================
+         HERO
+    ========================= -->
 
-    </div>
+    <main>
 
-</section>
+        <section class="hero">
 
+            <div class="hero-small">
+                Sound · Music · Creative Practice
+            </div>
 
-<!-- =========================================
-     ABOUT
-========================================= -->
+            <h1>
 
-<section class="about" id="about">
+                <span class="word">I</span>
+                <span class="word">MAKE</span>
+                <span class="word">THINGS</span>
+                <span class="word">YOU</span>
+                <span class="word">CAN</span>
+                <span class="word">HEAR.</span>
 
-    <div class="section-label">
-        01 — About
-    </div>
+            </h1>
 
-    <h2>
-        Sound in every setting.
-    </h2>
+            <p class="hero-description">
 
-    <p class="about-text">
+                Exploring sound across creative projects,
+                music production, live environments and
+                everything in between.
 
-        I'm a Creative Industries student with a passion for sound and music.
-        My experience spans sound editing, recording, music production,
-        audio mixing and live production. I'm interested in exploring
-        different areas of the sound and music industries and seeing
-        where each project takes me.
+            </p>
 
-    </p>
+            <div class="scroll-note">
+                ↓ Explore the work
+            </div>
 
-</section>
-
-
-<!-- =========================================
-     WORK
-========================================= -->
-
-<section class="work" id="work">
-
-    <div class="section-label">
-        02 — Selected Work
-    </div>
-
-    <h2>
-        Things I've made.
-    </h2>
-
-    <p class="work-intro">
-
-        A collection of projects exploring sound, music, production
-        and creative practice.
-
-    </p>
+        </section>
 
 
-    <!-- PROJECT 01 -->
+        <!-- =========================
+             ABOUT
+        ========================= -->
 
-    <article class="project">
+        <section id="about">
 
-        <div class="project-number">
-            01
-        </div>
+            <div class="section-label">
+                01 — About
+            </div>
 
-        <div class="project-title">
+            <h2 class="section-title">
+                Sound in every setting.
+            </h2>
 
-            <h3>
+            <p class="hero-description">
+
+                I am a Creative Industries student working
+                across sound and music. My interests span
+                music production, sound recording, editing,
+                live production and creative sound practice.
+
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             WORKS
+        ========================= -->
+
+        <section id="works">
+
+            <div class="section-label">
+                02 — Selected Work
+            </div>
+
+            <h2 class="section-title">
+                Things I've made.
+            </h2>
+
+            <p class="works-intro">
+
+                A selection of projects exploring different
+                approaches to sound, music and production.
+                Click a project to take a closer look.
+
+            </p>
+
+
+            <div class="projects">
+
+
+                <!-- PROJECT 1 -->
+
+                <article class="project"
+                    onclick="openModal('judasKiss')">
+
+                    <div class="project-image">
+
+                        <!--
+                        TO ADD YOUR IMAGE:
+
+                        Replace everything inside this
+                        project-image with:
+
+                        <img src="judas-kiss.jpg"
+                             alt="Judas Kiss project">
+
+                        -->
+
+                        ADD PROJECT IMAGE
+
+                    </div>
+
+                    <div class="project-info">
+
+                        <div class="project-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Judas Kiss
+                        </h3>
+
+                        <p class="project-type">
+                            Sound Editing · Continuity
+                        </p>
+
+                        <span class="click-project">
+                            View project →
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 2 -->
+
+                <article class="project"
+                    onclick="openModal('lostPiano')">
+
+                    <div class="project-image">
+
+                        <!--
+                        ADD YOUR IMAGE HERE:
+
+                        <img src="lost-piano.jpg"
+                             alt="The Lost Piano project">
+                        -->
+
+                        ADD PROJECT IMAGE
+
+                    </div>
+
+                    <div class="project-info">
+
+                        <div class="project-number">
+                            02
+                        </div>
+
+                        <h3>
+                            The Lost Piano
+                        </h3>
+
+                        <p class="project-type">
+                            Composition · Sound Design
+                        </p>
+
+                        <span class="click-project">
+                            View project →
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 3 -->
+
+                <article class="project"
+                    onclick="openModal('musicProduction')">
+
+                    <div class="project-image">
+
+                        <!--
+                        ADD YOUR IMAGE HERE:
+
+                        <img src="music-production.jpg"
+                             alt="Music production project">
+                        -->
+
+                        ADD PROJECT IMAGE
+
+                    </div>
+
+                    <div class="project-info">
+
+                        <div class="project-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Music Production
+                        </h3>
+
+                        <p class="project-type">
+                            Logic Pro · Ableton Live
+                        </p>
+
+                        <span class="click-project">
+                            View project →
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 4 -->
+
+                <article class="project"
+                    onclick="openModal('liveProduction')">
+
+                    <div class="project-image">
+
+                        <!--
+                        ADD YOUR IMAGE HERE:
+
+                        <img src="live-production.jpg"
+                             alt="Live production project">
+                        -->
+
+                        ADD PROJECT IMAGE
+
+                    </div>
+
+                    <div class="project-info">
+
+                        <div class="project-number">
+                            04
+                        </div>
+
+                        <h3>
+                            Live Production
+                        </h3>
+
+                        <p class="project-type">
+                            Live Audio · Broadcast
+                        </p>
+
+                        <span class="click-project">
+                            View project →
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SKILLS
+        ========================= -->
+
+        <section id="skills">
+
+            <div class="section-label">
+                03 — Capabilities
+            </div>
+
+            <h2 class="section-title">
+                What I work with.
+            </h2>
+
+
+            <div class="skills-grid">
+
+
+                <div class="skill-group">
+
+                    <h3>
+                        Sound
+                    </h3>
+
+                    <p>
+                        Sound Editing<br>
+                        Sound Recording<br>
+                        Sound Design<br>
+                        Adobe Premiere Pro<br>
+                        Continuity
+                    </p>
+
+                </div>
+
+
+                <div class="skill-group">
+
+                    <h3>
+                        Music
+                    </h3>
+
+                    <p>
+                        Logic Pro<br>
+                        Ableton Live<br>
+                        Pro Tools<br>
+                        Audio Mixing<br>
+                        Microphone Setup
+                    </p>
+
+                </div>
+
+
+                <div class="skill-group">
+
+                    <h3>
+                        Live & Production
+                    </h3>
+
+                    <p>
+                        Live Audio Mixing<br>
+                        Broadcast Production<br>
+                        QLab<br>
+                        Microphone Setup<br>
+                        Sound Effects
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT
+        ========================= -->
+
+        <section id="contact">
+
+            <div class="section-label">
+                04 — Contact
+            </div>
+
+            <h2 class="section-title">
+                Let's make something.
+            </h2>
+
+            <p class="contact-text">
+
+                Interested in working together,
+                collaborating or just talking sound?
+
+            </p>
+
+            <!--
+            CHANGE THE EMAIL ADDRESS BELOW
+            TO YOUR ACTUAL EMAIL ADDRESS.
+            -->
+
+            <a
+                class="contact-button"
+                href="mailto:YOUR-EMAIL@example.com">
+
+                Get in touch →
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         PROJECT MODALS
+    ========================= -->
+
+
+    <!-- JUDAS KISS -->
+
+    <div class="modal" id="judasKiss">
+
+        <div class="modal-content">
+
+            <button
+                class="modal-close"
+                onclick="closeModal('judasKiss')">
+
+                ×
+
+            </button>
+
+
+            <div class="modal-image">
+
+                <!--
+                ADD IMAGE:
+
+                <img src="judas-kiss.jpg"
+                     alt="Judas Kiss">
+                -->
+
+                PROJECT IMAGE
+
+            </div>
+
+
+            <div class="modal-number">
+                PROJECT 01
+            </div>
+
+            <h2>
                 Judas Kiss
-            </h3>
+            </h2>
 
-            <div class="project-type">
-                Sound Editing · Continuity
-            </div>
-
-        </div>
-
-
-        <div class="project-image">
-
-            <!--
-            ADD YOUR JUDAS KISS IMAGE HERE.
-
-            Example:
-
-            <img src="judas-kiss.jpg" alt="Judas Kiss project">
-
-            -->
-
-            <div class="image-placeholder">
-
-                <span>♫</span>
-
-                <p>
-                    Project Image
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="project-info">
-
-            <h4>
-                About the project
-            </h4>
-
-            <p>
-                Sound editing and continuity work for a short film,
-                working between completed visual elements and a final deadline.
+            <p class="modal-type">
+                Sound Editing · Continuity Advisor
             </p>
 
+
+            <p class="modal-description">
+
+                A short film project where I worked as
+                Sound Editor and Continuity Advisor.
+
+                I edited sound between the completion of
+                the visual elements and the project's final
+                deadline, working within a short production
+                timeframe.
+
+            </p>
+
+
+            <div class="modal-skills">
+
+                <span>Sound Editing</span>
+                <span>Sound</span>
+                <span>Continuity</span>
+                <span>Premiere Pro</span>
+
+            </div>
+
+
+            <div class="media-note">
+
+                Audio or video from this project can be
+                added here later.
+
+            </div>
+
         </div>
 
-    </article>
+    </div>
 
 
-    <!-- PROJECT 02 -->
+    <!-- THE LOST PIANO -->
 
-    <article class="project">
+    <div class="modal" id="lostPiano">
 
-        <div class="project-number">
-            02
-        </div>
+        <div class="modal-content">
 
-        <div class="project-title">
+            <button
+                class="modal-close"
+                onclick="closeModal('lostPiano')">
 
-            <h3>
+                ×
+
+            </button>
+
+
+            <div class="modal-image">
+
+                <!--
+                ADD IMAGE:
+
+                <img src="lost-piano.jpg"
+                     alt="The Lost Piano">
+                -->
+
+                PROJECT IMAGE
+
+            </div>
+
+
+            <div class="modal-number">
+                PROJECT 02
+            </div>
+
+            <h2>
                 The Lost Piano
-            </h3>
+            </h2>
 
-            <div class="project-type">
+            <p class="modal-type">
                 Composition · Sound Design
-            </div>
-
-        </div>
-
-
-        <div class="project-image">
-
-            <!--
-            ADD YOUR LOST PIANO IMAGE HERE.
-
-            Example:
-
-            <img src="the-lost-piano.jpg" alt="The Lost Piano project">
-
-            -->
-
-            <div class="image-placeholder">
-
-                <span>♬</span>
-
-                <p>
-                    Project Image
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="project-info">
-
-            <h4>
-                About the project
-            </h4>
-
-            <p>
-                Original composition and sound design created to support
-                reflection, tension and memory through changes in
-                instrumentation, dynamics and musical motifs.
             </p>
 
+
+            <p class="modal-description">
+
+                A score and sound design project created
+                to support a reflective and tense narrative.
+
+                The composition uses a limited,
+                atmospheric instrumentation palette,
+                with a recurring piano motif that changes
+                throughout the piece.
+
+            </p>
+
+
+            <div class="modal-skills">
+
+                <span>Composition</span>
+                <span>Sound Design</span>
+                <span>Piano</span>
+                <span>Strings</span>
+
+            </div>
+
+
+            <div class="media-note">
+
+                Audio from the score can be added here.
+
+            </div>
+
         </div>
 
-    </article>
+    </div>
 
 
-    <!-- PROJECT 03 -->
+    <!-- MUSIC PRODUCTION -->
 
-    <article class="project">
+    <div class="modal" id="musicProduction">
 
-        <div class="project-number">
-            03
-        </div>
+        <div class="modal-content">
 
-        <div class="project-title">
+            <button
+                class="modal-close"
+                onclick="closeModal('musicProduction')">
 
-            <h3>
+                ×
+
+            </button>
+
+
+            <div class="modal-image">
+
+                <!--
+                ADD IMAGE:
+
+                <img src="music-production.jpg"
+                     alt="Music production project">
+                -->
+
+                PROJECT IMAGE
+
+            </div>
+
+
+            <div class="modal-number">
+                PROJECT 03
+            </div>
+
+            <h2>
                 Music Production
-            </h3>
+            </h2>
 
-            <div class="project-type">
-                Logic Pro · Ableton Live
-            </div>
-
-        </div>
-
-
-        <div class="project-image">
-
-            <!--
-            ADD YOUR MUSIC PRODUCTION IMAGE HERE.
-
-            Example:
-
-            <img src="music-production.jpg" alt="Music production project">
-
-            -->
-
-            <div class="image-placeholder">
-
-                <span>♪</span>
-
-                <p>
-                    Project Image
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="project-info">
-
-            <h4>
-                About the project
-            </h4>
-
-            <p>
-                Original music created using digital audio workstations,
-                exploring production, arrangement, recording, sound
-                selection and mixing.
+            <p class="modal-type">
+                Music Production · DAWs
             </p>
 
+
+            <p class="modal-description">
+
+                A selection of music projects created using
+                digital audio workstations including Logic Pro
+                and Ableton Live.
+
+                These projects explore songwriting,
+                arrangement, recording, sound selection
+                and audio mixing.
+
+            </p>
+
+
+            <div class="modal-skills">
+
+                <span>Logic Pro</span>
+                <span>Ableton Live</span>
+                <span>Audio Mixing</span>
+                <span>Recording</span>
+
+            </div>
+
+
+            <div class="media-note">
+
+                Music samples can be added here later.
+
+            </div>
+
         </div>
 
-    </article>
+    </div>
 
 
-    <!-- PROJECT 04 -->
+    <!-- LIVE PRODUCTION -->
 
-    <article class="project">
+    <div class="modal" id="liveProduction">
 
-        <div class="project-number">
-            04
-        </div>
+        <div class="modal-content">
 
-        <div class="project-title">
+            <button
+                class="modal-close"
+                onclick="closeModal('liveProduction')">
 
-            <h3>
+                ×
+
+            </button>
+
+
+            <div class="modal-image">
+
+                <!--
+                ADD IMAGE:
+
+                <img src="live-production.jpg"
+                     alt="Live production project">
+                -->
+
+                PROJECT IMAGE
+
+            </div>
+
+
+            <div class="modal-number">
+                PROJECT 04
+            </div>
+
+            <h2>
                 Live Production
-            </h3>
+            </h2>
 
-            <div class="project-type">
-                Live Audio · Broadcast
+            <p class="modal-type">
+                Live Audio · Broadcast Production
+            </p>
+
+
+            <p class="modal-description">
+
+                Practical experience working with sound
+                in live and broadcast environments.
+
+                This work has included microphone setup,
+                live audio mixing, sound effects and
+                supporting live productions.
+
+            </p>
+
+
+            <div class="modal-skills">
+
+                <span>Live Audio</span>
+                <span>Broadcast</span>
+                <span>QLab</span>
+                <span>Microphones</span>
+
+            </div>
+
+
+            <div class="media-note">
+
+                Photos, recordings or broadcast examples
+                can be added here later.
+
             </div>
 
         </div>
 
-
-        <div class="project-image">
-
-            <!--
-            ADD YOUR LIVE PRODUCTION IMAGE HERE.
-
-            Example:
-
-            <img src="live-production.jpg" alt="Live production project">
-
-            -->
-
-            <div class="image-placeholder">
-
-                <span>♩</span>
-
-                <p>
-                    Project Image
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="project-info">
-
-            <h4>
-                About the project
-            </h4>
-
-            <p>
-                Audio and broadcast experience across live environments,
-                including microphone setup, audio mixing and production support.
-            </p>
-
-        </div>
-
-    </article>
-
-
-</section>
-
-
-<!-- =========================================
-     SKILLS
-========================================= -->
-
-<section class="skills" id="skills">
-
-    <div class="section-label">
-        03 — Capabilities
     </div>
 
-    <h2>
-        What's on the desk?
-    </h2>
 
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
-    <div class="skills-grid">
+    <footer>
 
+        © 2026 Tayla Kane · Sound & Music
 
-        <div class="skill-box">
+    </footer>
 
-            <h3>
-                Sound
-            </h3>
 
-            <p>
-                Sound Editing · Sound Recording · Sound Design ·
-                Sound Effects · Continuity · Adobe Premiere Pro
-            </p>
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
 
-        </div>
+    <script>
 
 
-        <div class="skill-box">
+        /* =========================
+           CUSTOM CURSOR
+        ========================= */
 
-            <h3>
-                Music
-            </h3>
+        const cursor = document.getElementById("cursor");
 
-            <p>
-                Music Production · Composition · Audio Mixing ·
-                Logic Pro · Ableton Live · Pro Tools · Microphone Setup
-            </p>
+        document.addEventListener("mousemove", function(event) {
 
-        </div>
+            cursor.style.left = event.clientX + "px";
+            cursor.style.top = event.clientY + "px";
 
+        });
 
-        <div class="skill-box">
 
-            <h3>
-                Live
-            </h3>
+        /* =========================
+           MUSIC NOTE TRAIL
+        ========================= */
 
-            <p>
-                Live Audio Mixing · Broadcast · Microphone Setup ·
-                QLab · Sound Effects · Live Production
-            </p>
+        document.addEventListener("mousemove", function(event) {
 
-        </div>
+            if (Math.random() > 0.82) {
 
+                const trail = document.createElement("div");
 
-    </div>
+                trail.className = "cursor-trail";
 
-</section>
+                const notes = ["♪", "♫", "♬", "♩"];
 
+                trail.innerText =
+                    notes[Math.floor(Math.random() * notes.length)];
 
-<!-- =========================================
-     CONTACT
-========================================= -->
+                trail.style.left = event.clientX + "px";
+                trail.style.top = event.clientY + "px";
 
-<section class="contact" id="contact">
+                document.body.appendChild(trail);
 
-    <div class="section-label">
-        04 — Contact
-    </div>
+                setTimeout(function() {
 
-    <h2>
-        Let's make something.
-    </h2>
+                    trail.remove();
 
-    <p>
-        Interested in working together or want to get in touch?
-    </p>
+                }, 800);
 
-    <a class="button" href="mailto:YOUR-EMAIL@example.com">
-        Get in touch →
-    </a>
+            }
 
-</section>
+        });
 
 
-</main>
+        /* =========================
+           OPEN PROJECT
+        ========================= */
 
+        function openModal(id) {
 
-<!-- =========================================
-     FOOTER
-========================================= -->
+            const modal = document.getElementById(id);
 
-<footer>
+            modal.classList.add("active");
 
-    © 2026 Tayla Kane · Sound & Music
-
-</footer>
-
-
-<!-- =========================================
-     JAVASCRIPT
-========================================= -->
-
-<script>
-
-const cursor = document.getElementById("customCursor");
-
-let mouseX = 0;
-let mouseY = 0;
-
-let cursorX = 0;
-let cursorY = 0;
-
-
-/* Track mouse */
-
-document.addEventListener("mousemove", function(event) {
-
-    mouseX = event.clientX;
-    mouseY = event.clientY;
-
-});
-
-
-/* Smooth cursor movement */
-
-function moveCursor() {
-
-    cursorX += (mouseX - cursorX) * 0.15;
-    cursorY += (mouseY - cursorY) * 0.15;
-
-    cursor.style.left = cursorX + "px";
-    cursor.style.top = cursorY + "px";
-
-    requestAnimationFrame(moveCursor);
-
-}
-
-moveCursor();
-
-
-/* =========================================
-   MUSIC NOTE TRAIL
-========================================= */
-
-let lastTrailTime = 0;
-
-document.addEventListener("mousemove", function(event) {
-
-    const now = Date.now();
-
-    if (now - lastTrailTime < 130) {
-        return;
-    }
-
-    lastTrailTime = now;
-
-
-    const note = document.createElement("div");
-
-    note.className = "cursor-note";
-
-
-    const notes = [
-        "♪",
-        "♫",
-        "♬",
-        "♩"
-    ];
-
-
-    note.innerText =
-        notes[Math.floor(Math.random() * notes.length)];
-
-
-    note.style.left =
-        event.clientX + "px";
-
-    note.style.top =
-        event.clientY + "px";
-
-
-    document.body.appendChild(note);
-
-
-    setTimeout(function() {
-
-        note.remove();
-
-    }, 800);
-
-});
-
-
-/* =========================================
-   CURSOR HOVER EFFECT
-========================================= */
-
-const interactiveElements =
-    document.querySelectorAll("a, button");
-
-
-interactiveElements.forEach(function(element) {
-
-    element.addEventListener(
-        "mouseenter",
-        function() {
-
-            cursor.classList.add("hover");
+            document.body.style.overflow = "hidden";
 
         }
-    );
 
 
-    element.addEventListener(
-        "mouseleave",
-        function() {
+        /* =========================
+           CLOSE PROJECT
+        ========================= */
 
-            cursor.classList.remove("hover");
+        function closeModal(id) {
+
+            const modal = document.getElementById(id);
+
+            modal.classList.remove("active");
+
+            document.body.style.overflow = "";
 
         }
-    );
-
-});
 
 
-</script>
+        /* =========================
+           CLICK OUTSIDE MODAL
+        ========================= */
 
+        document.querySelectorAll(".modal").forEach(function(modal) {
+
+            modal.addEventListener("click", function(event) {
+
+                if (event.target === modal) {
+
+                    modal.classList.remove("active");
+
+                    document.body.style.overflow = "";
+
+                }
+
+            });
+
+        });
+
+
+        /* =========================
+           ESCAPE KEY
+        ========================= */
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+
+                document.querySelectorAll(".modal").forEach(function(modal) {
+
+                    modal.classList.remove("active");
+
+                });
+
+                document.body.style.overflow = "";
+
+            }
+
+        });
+
+
+    </script>
 
 </body>
 </html>
