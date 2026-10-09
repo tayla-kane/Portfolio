@@ -14,7 +14,60 @@
     <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
+.livestream-section {
+    margin-top: 100px;
+}
 
+.livestream-section h2 {
+    font-size: 32px;
+    margin-bottom: 35px;
+}
+
+.livestream-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+}
+
+.livestream-card {
+    background: white;
+    border: 1px solid #dceaf3;
+    border-radius: 25px;
+    padding: 20px;
+    min-width: 0;
+}
+
+.livestream-video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 15px;
+    background: #e1f1fb;
+}
+
+.livestream-video iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.livestream-card h3 {
+    font-size: 22px;
+    margin: 20px 0 10px;
+}
+
+.livestream-card p {
+    font-size: 14px;
+    color: #75add3;
+    margin: 0;
+}
+
+@media (max-width: 700px) {
+    .livestream-grid {
+        grid-template-columns: 1fr;
+    }
+}
         * {
             box-sizing: border-box;
         }
@@ -212,7 +265,58 @@
             </div>
 
         </div>
+<section class="livestream-section">
 
+    <h2>Selected Livestreams</h2>
+
+    <div class="livestream-grid">
+
+        <div class="livestream-card">
+            <div class="livestream-video">
+                <iframe
+                    src="https://www.youtube.com/embed/t6FI_yEOMdk&t=2124s"
+                    title=Jars
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <h3>Jars - QUT Drama Showcase</h3>
+            <p>My role · Sound Mixer</p>
+        </div>
+
+        <div class="livestream-card">
+            <div class="livestream-video">
+                <iframe
+                    src="https://www.youtube.com/embed/R0zA3Kut8O8&t=1719s"
+                    title="Detritus"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <h3>Detritus - QUT Drama Showcase</h3>
+            <p>My role · Sound Mixer/p>
+        </div>
+       <div class="livestream-card">
+            <div class="livestream-video">
+                <iframe
+                    src="https://www.youtube.com/embed/loLOHV6GUeM&t=6891s"
+                    title="QUT Music Showcase 2026"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <h3>QUT Music Showcase 2026</h3>
+            <p>My role · Sound Mixer/p>
+        </div>
+    </div>
+
+</section>
     </main>
 
 </body>
