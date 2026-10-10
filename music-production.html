@@ -130,7 +130,38 @@
                 font-size: clamp(48px, 15vw, 80px);
             }
         }
+.selected-work {
+    margin-top: 80px;
+}
 
+.selected-work h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.song-card {
+    background: white;
+    border: 1px solid #dceaf3;
+    border-radius: 22px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.song-card h3 {
+    font-size: 22px;
+    margin: 0 0 10px;
+}
+
+.song-card p {
+    color: #75add3;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.song-card audio {
+    width: 100%;
+    display: block;
+}
     </style>
 </head>
 
@@ -196,13 +227,39 @@
         </div>
 
 
-        <section class="music-section">
+      <section class="selected-work">
+    <h2>Selected Work</h2>
 
-            <h2>Selected Work</h2>
+    <div class="song-card">
+        <h3>Reminders Of You</h3>
+        <p>Music Production · Logic Pro</p>
 
-            <!-- We will add your songs here -->
+        <audio controls preload="metadata">
+            <source src="song-1.mp3" type="audio/mpeg">
+            Your browser does not support audio playback.
+        </audio>
+    </div>
 
-        </section>
+    <div class="song-card">
+        <h3>Pick up the Pieces</h3>
+        <p>Music Production · Ableton Live</p>
+
+        <audio controls preload="metadata">
+            <source src="song-2.mp3" type="audio/mpeg">
+            Your browser does not support audio playback.
+        </audio>
+    </div>
+              <div class="song-card">
+        <h3>Alone</h3>
+        <p>Music Production · Logic Pro</p>
+
+        <audio controls preload="metadata">
+            <source src="song-1.mp3" type="audio/mpeg">
+            Your browser does not support audio playback.
+        </audio>
+    </div>
+
+</section>
 
     </main>
 
